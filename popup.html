@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toolbox - Web With Irfan</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="vendor/tesseract.min.js"></script>
+</head>
+<body>
+  <div class="tab-container">
+    <button class="tab-button btn-hover active" data-tab="clamp">Clamp Calculator</button>
+    <button class="tab-button btn-hover" data-tab="clamp-presets">Clamp Presets</button>
+    <button class="tab-button btn-hover" data-tab="business-info">Business Info</button>
+    <button class="tab-button btn-hover" data-tab="accent-color">Accent Color</button>
+    <button class="tab-button btn-hover" data-tab="lorem">Lorem Ipsum</button>    
+    <button class="tab-button btn-hover" data-tab="color">Color Picker</button>
+    <button class="tab-button btn-hover" data-tab="font">Font Checker</button>
+    <button class="tab-button btn-hover" data-tab="box-shadow">Box Shadow Gen</button>    
+    <button class="tab-button btn-hover" data-tab="gradient">Gradient Generator</button>
+    <button class="tab-button btn-hover" data-tab="unit-converter">Unit Converter</button>
+    <button class="tab-button btn-hover" data-tab="text-case">Text Case Converter</button>
+    <button class="tab-button btn-hover" data-tab="contrast-checker">Color Contrast</button>
+    
+  </div>
+
+  <!-- CSS Clamp Calculator -->
+
+  <div class="tab-content active" id="clamp">
+    <h3>CSS Clamp Calculator</h3>
+  
+    <div class="preview-section">
+      <div class="code-display">
+        <code id="clampOutput">Your clamp() function will appear here</code>
+        <button id="copyClampBtn" class="btn-hover">Copy CSS</button>
+      </div>
+    </div>
+
+    <div class="root-font-row">
+      <span>Root Font Size:</span>
+      <label><input type="radio" name="rootFontSize" value="16" checked> 100% (16px)</label>
+      <label><input type="radio" name="rootFontSize" value="10"> 62.5% (10px)</label>
+    </div>
+
+    <div class="input-grid">
+      <div class="input-group">
+        <label for="minDeviceWidth">Min Device Width</label>
+        <div class="input-with-unit">
+          <input type="number" id="minDeviceWidth" placeholder="e.g 320" value="320">
+          <span class="unit">px</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="maxDeviceWidth">Max Device Width</label>
+        <div class="input-with-unit">
+          <input type="number" id="maxDeviceWidth" placeholder="e.g 1280" value="1280">
+          <span class="unit">px</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="minFontSize">Minimum Font Size</label>
+        <div class="input-with-unit">
+          <input type="number" id="minFontSize" placeholder="e.g., 1" step="0.01" value="3">
+          <span class="unit">rem</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="maxFontSize">Maximum Font Size</label>
+        <div class="input-with-unit">
+          <input type="number" id="maxFontSize" placeholder="e.g., 2" step="0.01" value="4">
+          <span class="unit">rem</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="action-buttons">
+      <button id="generateClamp" class="btn-hover">Generate Clamp()</button>
+      <button id="resetClamp" class="btn-hover">Reset Form</button>
+    </div>
+  </div>
+  
+
+  <!-- Lorem Ipsum Generator -->
+  <div class="tab-content" id="lorem">
+    <h3>Lorem Ipsum Generator</h3>
+    
+    <div class="input-grid">
+      <div class="input-group">
+        <label for="loremParagraphs">Paragraphs</label>
+        <input type="number" id="loremParagraphs" min="1" max="10" value="2">
+      </div>
+      <div class="input-group">
+        <label for="loremSentences">Sentences per Paragraph</label>
+        <input type="number" id="loremSentences" min="1" max="10" value="3">
+      </div>
+      <div class="input-group">
+        <label for="loremWordsPerSentence">Words per sentence:</label>
+        <input type="number" id="loremWordsPerSentence" value="8" min="3" max="20" />
+
+      </div>
+    </div>
+
+    <div class="preview-section">
+      <div class="preview-container text-preview">
+        <textarea id="loremOutput" rows="6" readonly></textarea>
+      </div>
+      <div class="action-buttons">
+        <button id="generateLorem" class="btn-hover">Generate</button>
+        <button id="copyLorem" class="btn-hover">Copy Text</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Color Picker -->
+  <div class="tab-content" id="color">
+    <h3>Color Picker</h3>
+    <button id="eyeDropperBtn" class="btn-hover">Pick From Page</button>
+    <input type="color" id="colorInput">
+    <div id="colorPreview"></div>
+    <div class="code-display">
+      <code id="hexCode">color: #000000;</code>
+      <button class="copy btn-hover" data-copy="hex">Copy</button>
+    </div>
+    <div class="code-display">
+      <code id="rgbCode">color: rgb(0,0,0);</code>
+      <button class="copy btn-hover" data-copy="rgb">Copy</button>
+    </div>
+    <div class="code-display">
+      <code id="hslCode">color: hsl(0, 0%, 0%);</code>
+      <button class="copy btn-hover" data-copy="hsl">Copy</button>
+    </div>
+  </div>
+
+  <!-- Font Checker -->
+  <div class="tab-content" id="font">
+    <h3>Font Checker</h3>
+    
+    <div class="preview-section">
+      <div class="button-group">
+        <button id="checkFontOnPage" class="btn-hover">Pick Font from Page</button>
+        <button id="resetFontPicker" class="btn-hover">Reset Picker</button>
+      </div>
+      <p class="hint">Hover over any text on the page and click to analyze its font properties.</p>
+      
+      <div class="code-display">
+        <code id="fontInfoOutput">Click "Pick Font from Page" to start...</code>
+        <button id="copyFontInfo" class="btn-hover">Copy CSS</button>
+      </div>
+      
+      <div id="fontPreviewBox" class="font-preview hidden">
+        <h4>Preview Text</h4>
+        <p id="fontPreview">The quick brown fox jumps over the lazy dog</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Box Shadow Generator -->
+  <div class="tab-content" id="box-shadow">
+    <h3>Box Shadow Generator</h3>
+    
+    <div class="box-shadow-presets">
+      <h4>Presets</h4>
+      <div class="preset-grid">
+        <button class="shadow-preset btn-hover" data-preset="soft">Soft Shadow</button>
+        <button class="shadow-preset btn-hover" data-preset="medium">Medium Shadow</button>
+        <button class="shadow-preset btn-hover" data-preset="hard">Hard Shadow</button>
+        <button class="shadow-preset btn-hover" data-preset="layered">Layered Shadow</button>
+        <button class="shadow-preset btn-hover" data-preset="inset">Inset Shadow</button>
+        <button class="shadow-preset btn-hover" data-preset="float">Float Effect</button>
+      </div>
+    </div>
+    
+    <div class="preview-section">
+      <div class="preview-container">
+        <div id="boxShadowPreview">Preview</div>
+      </div>
+      <div class="code-display">        <code id="shadowCode">box-shadow: none;</code>
+        <button id="copyBoxShadow" class="btn-hover">Copy CSS</button>
+      </div>
+    </div>
+
+    <div class="box-shadow-grid">
+      <div class="input-group">
+        <label for="hOffset">Horizontal Offset (px)</label>
+        <input type="number" id="hOffset" placeholder="e.g., 10">
+      </div>
+      <div class="input-group">
+        <label for="vOffset">Vertical Offset (px)</label>
+        <input type="number" id="vOffset" placeholder="e.g., 10">
+      </div>
+      <div class="input-group">
+        <label for="blurRadius">Blur Radius (px)</label>
+        <input type="number" id="blurRadius" placeholder="e.g., 5">
+      </div>
+      <div class="input-group">
+        <label for="spreadRadius">Spread Radius (px)</label>
+        <input type="number" id="spreadRadius" placeholder="e.g., 0">
+      </div>
+      <div class="input-group">
+        <label for="shadowColor">Shadow Color</label>
+        <input type="color" id="shadowColor" value="#000000">
+      </div>
+      <div class="input-group">
+        <label class="inset-label"><input type="checkbox" id="insetToggle"> Inset</label>
+      </div>
+    </div>
+
+    <h4>Box Properties</h4>
+    <div class="box-properties-grid">
+      <div class="input-group">
+        <label for="canvasColor">Canvas Color</label>
+        <input type="color" id="canvasColor" value="#f3f4f6">
+      </div>
+      <div class="input-group">
+        <label for="previewBgColor">Background Color</label>
+        <input type="color" id="previewBgColor" value="#ffffff">
+      </div>
+      <div class="input-group">
+        <label for="borderColor">Border Color</label>
+        <input type="color" id="borderColor" value="#000000">
+      </div>
+      <div class="input-group">
+        <label for="borderRadius">Border Radius (px)</label>
+        <input type="number" id="borderRadius" placeholder="e.g., 0" min="0" max="200">
+      </div>
+      <div class="input-group">
+        <label for="previewHeight">Height (px)</label>
+        <input type="number" id="previewHeight" value="100" min="50" max="200">
+      </div>
+      <div class="input-group">
+        <label for="previewWidth">Width (px)</label>
+        <input type="number" id="previewWidth" value="200" min="50" max="200">
+      </div>
+    </div>
+
+    <div class="reset-section">
+    <button id="resetBoxShadow" class="btn-hover">Reset Input Values</button>
+  </div>
+  </div>
+
+
+  <!-- Gradient Generator -->
+  <div class="tab-content" id="gradient">
+    <h3>Gradient Generator</h3>
+    
+    <div class="gradient-presets">
+      <h4>Presets</h4>
+      <div class="preset-grid">
+        <button class="gradient-preset btn-hover" data-preset="sunset">Sunset</button>
+        <button class="gradient-preset btn-hover" data-preset="ocean">Ocean</button>
+        <button class="gradient-preset btn-hover" data-preset="emerald">Emerald</button>
+        <button class="gradient-preset btn-hover" data-preset="aurora">Aurora</button>
+        <button class="gradient-preset btn-hover" data-preset="cosmic">Cosmic</button>
+        <button class="gradient-preset btn-hover" data-preset="royal">Royal</button>
+      </div>
+    </div>
+    
+    <div class="preview-section">
+      <div class="preview-container">
+        <div id="gradientPreview">Preview</div>
+      </div>
+      <div class="code-display">        <code id="gradientCode">background-image: linear-gradient(to right, #000000, #ffffff);</code>
+        <button id="copyGradient" class="btn-hover">Copy CSS</button>
+      </div>
+    </div>
+
+    <div class="gradient-controls">
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="gradientType">Type</label>
+          <select id="gradientType">
+            <option value="linear">Linear</option>
+            <option value="radial">Radial</option>
+            <option value="conic">Conic</option>
+          </select>
+        </div>
+        
+        <div class="input-group" id="linearControls">
+          <label for="gradientDirection">Direction</label>
+          <select id="gradientDirection">
+            <option value="to right">→ To Right</option>
+            <option value="to bottom">↓ To Bottom</option>
+            <option value="to left">← To Left</option>
+            <option value="to top">↑ To Top</option>
+            <option value="45deg">↗ 45° Diagonal</option>
+            <option value="-45deg">↘ -45° Diagonal</option>
+            <option value="custom">Custom Angle</option>
+          </select>
+          <div id="customAngleControls" class="hidden">
+            <div class="angle-control">
+              <input type="range" id="customAngle" min="0" max="360" value="90" step="1">
+              <div id="angleVisualizer">↑</div>
+              <span id="customAngleValue">90°</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group hidden" id="radialControls">
+          <label for="radialShape">Shape</label>
+          <select id="radialShape">
+            <option value="circle">Circle</option>
+            <option value="ellipse">Ellipse</option>
+          </select>
+        </div>
+      </div>
+
+      <h4>Color Stops</h4>
+      <div class="color-stops-wrapper">
+        <div id="colorStopsSlider"></div>
+        <div id="colorStops" class="color-stops-container">
+          <div class="color-stop">
+            <input type="color" class="gradientColor" value="#000000">
+            <input type="range" class="gradientStop" value="0" min="0" max="100">
+            <span class="position-label">0%</span>
+            <input type="number" class="color-stop-input" value="0" min="0" max="100">
+            <button class="remove-stop btn-hover" title="Remove Color Stop">×</button>
+          </div>
+          <div class="color-stop">
+            <input type="color" class="gradientColor" value="#ffffff">
+            <input type="range" class="gradientStop" value="100" min="0" max="100">
+            <span class="position-label">100%</span>
+            <input type="number" class="color-stop-input" value="100" min="0" max="100">
+            <button class="remove-stop btn-hover" title="Remove Color Stop">×</button>
+          </div>
+        </div>
+      </div>
+      <button id="addColorStop" class="btn-hover">Add Color Stop</button>
+    </div>
+    <div class="reset-section">
+    <button id="resetGradient" class="btn-hover">Reset Input Values</button>
+  </div>
+  </div>
+
+  <!-- Text Case Converter -->
+  <div class="tab-content" id="text-case">
+    <h3>Text Case Converter 📝</h3>
+    
+    <div class="input-grid">
+      <div class="input-group" style="grid-column: 1 / -1;">
+        <textarea 
+          id="textInput" 
+          rows="6" 
+          placeholder="Enter or paste your text here..."
+          aria-label="Text to convert"></textarea>
+      </div>
+    </div>    
+    <div class="case-controls">
+      <div class="preset-grid">
+        <button class="case-btn btn-hover" data-case="upper">UPPERCASE</button>
+        <button class="case-btn btn-hover" data-case="lower">lowercase</button>
+        <button class="case-btn btn-hover" data-case="title">Title Case</button>
+        <button class="case-btn btn-hover" data-case="sentence">Sentence case</button>
+        <button class="case-btn btn-hover" data-case="capitalize">Capitalize Each Word</button>
+        <button class="case-btn btn-hover" data-case="toggle">tOGGLE cASE</button>
+        <button class="case-btn btn-hover" data-case="inverse">InVeRsE cAsE</button>
+        <button class="utility-btn btn-hover" id="removeSpaces">Remove Extra Spaces</button>
+        <button class="utility-btn btn-hover" id="undoButton" disabled>Undo (Ctrl+Z)</button>
+      </div>
+
+
+      <div class="action-row">
+        <button class="action-btn btn-hover" id="clearText">Clear Text</button>
+        <button class="action-btn btn-hover" id="copyText" disabled>Copy to Clipboard</button>
+        <button class="action-btn btn-hover" id="downloadText" disabled>Download as .txt</button>
+      </div>
+    </div>
+
+    <div class="stats-display">
+      <p id="textStats" aria-live="polite">Characters: 0 | Words: 0</p>
+    </div>
+  </div>
+  
+
+  <!-- Unit Converter -->
+  <div class="tab-content" id="unit-converter">
+    <h3>Unit Converter</h3>
+    
+    <div class="preview-section">
+      <div class="code-display">
+        <code id="conversionResult">0px = 0rem</code>
+        <button id="copyConversion" class="btn-hover">Copy</button>
+      </div>
+    </div>
+
+    <div class="converter-grid">
+      <div class="input-group">
+        <label for="baseFontSize">Base Font Size</label>
+        <div class="input-with-unit">
+          <input type="number" id="baseFontSize" value="16" min="1" max="100">
+          <span class="unit">px</span>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="inputValue">Value</label>
+        <div class="input-with-unit">
+          <input type="number" id="inputValue" placeholder="Enter value" step="0.1">
+          <select id="inputUnit">
+            <option value="px">px</option>
+            <option value="rem">rem</option>
+            <option value="em">em</option>
+            <option value="%">%</option>
+            <option value="vh">vh</option>
+            <option value="vw">vw</option>
+            <option value="vmin">vmin</option>
+            <option value="vmax">vmax</option>
+            <option value="pt">pt</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="conversion-arrow">
+        <span>⟶</span>
+      </div>
+
+      <div class="input-group">
+        <label for="outputUnit">Convert To</label>
+        <select id="outputUnit">
+          <option value="rem">rem</option>
+          <option value="px">px</option>
+          <option value="em">em</option>
+          <option value="%">%</option>
+          <option value="vh">vh</option>
+          <option value="vw">vw</option>
+          <option value="vmin">vmin</option>
+          <option value="vmax">vmax</option>
+          <option value="pt">pt</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="common-conversions">
+      <h4>Common Conversions</h4>
+      <div class="quick-convert-grid">
+        <button class="quick-convert btn-hover" data-value="16" data-from="px" data-to="rem">16px → rem</button>
+        <button class="quick-convert btn-hover" data-value="1" data-from="rem" data-to="px">1rem → px</button>
+        <button class="quick-convert btn-hover" data-value="100" data-from="%" data-to="px">100% → px</button>
+        <button class="quick-convert btn-hover" data-value="100" data-from="vh" data-to="px">100vh → px</button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Clamp Presets -->
+  <div class="tab-content" id="clamp-presets">
+    <h3>CSS Clamp Presets</h3>
+    
+    <p class="root-font-info">All values are calculated with root font-size: 10px (62.5%)</p>
+
+    <div class="preview-section">
+      <div class="code-display">
+        <code id="clampPresetsOutput">:root {
+  font-size: 10px;
+  --font-h1: clamp(4rem, 3.733rem + 0.333vw, 4.8rem);
+  --font-h2: clamp(3.5rem, 3.267rem + 0.233vw, 4rem);
+  --font-h3: clamp(2.8rem, 2.667rem + 0.133vw, 3.2rem);
+  --font-h4: clamp(2.2rem, 2.133rem + 0.067vw, 2.5rem);
+  --font-h5: clamp(1.8rem, 1.733rem + 0.067vw, 2rem);
+  --font-h6: clamp(1.5rem, 1.467rem + 0.033vw, 1.6rem);
+  --font-subheading: clamp(2rem, 0.521vw + 1.833rem, 2.5rem);
+  --text: clamp(1.4rem, 1.367rem + 0.033vw, 1.6rem);
+  --small-text: clamp(1.2rem, 1.167rem + 0.033vw, 1.4rem);
+  --text-button: clamp(1.3rem, 1.25rem + 0.025vw, 1.5rem);
+}</code>
+        <button id="copyClampPresets" class="btn-hover">Copy CSS</button>
+      </div>
+    </div>
+
+    <div class="clamp-presets-preview">
+      <h2 class="preview-heading">Edit Min & Max Values:</h2>
+      <div class="preview-item" data-element="h1">
+        <span class="element-label">h1</span>
+        <div class="size-controls">
+          <label>Min Size (rem):</label>
+          <input type="number" class="min-size" value="4.0" step="0.1">
+          <label>Max Size (rem):</label>
+          <input type="number" class="max-size" value="4.8" step="0.1">
+        </div>
+      </div>
+      <div class="preview-item" data-element="h2">
+        <span class="element-label">h2</span>
+        <div class="size-controls">
+          <label>Min Size (rem):</label>
+          <input type="number" class="min-size" value="3.5" step="0.1">
+          <label>Max Size (rem):</label>
+          <input type="number" class="max-size" value="4.0" step="0.1">
+        </div>
+      </div>
+      <div class="preview-item" data-element="h3">
+        <span class="element-label">h3</span>
+        <div class="size-controls">
+          <label>Min Size (rem):</label>
+          <input type="number" class="min-size" value="2.8" step="0.1">
+          <label>Max Size (rem):</label>
+          <input type="number" class="max-size" value="3.2" step="0.1">
+        </div>
+      </div>
+      <div class="preview-item" data-element="h4">
+        <span class="element-label">h4</span>
+        <div class="size-controls">
+          <label>Min Size (rem):</label>
+          <input type="number" class="min-size" value="2.2" step="0.1">
+          <label>Max Size (rem):</label>
+          <input type="number" class="max-size" value="2.5" step="0.1">
+        </div>
+      </div>
+      <div class="preview-item" data-element="h5">
+        <span class="element-label">h5</span>
+        <div class="size-controls">
+          <label>Min Size (rem):</label>
+          <input type="number" class="min-size" value="1.8" step="0.1">
+          <label>Max Size (rem):</label>
+          <input type="number" class="max-size" value="2.0" step="0.1">
+        </div>
+      </div>
+      <div class="preview-item" data-element="h6">
+        <span class="element-label">h6</span>
+        <div class="size-controls">
+          <label>Min Size (rem):</label>
+          <input type="number" class="min-size" value="1.5" step="0.1">
+          <label>Max Size (rem):</label>
+          <input type="number" class="max-size" value="1.6" step="0.1">
+        </div>
+      </div>
+      <div class="preview-item" data-element="subheading">
+        <span class="element-label">Subheading</span>
+        <div class="size-controls">
+          <label>Min Size (rem):</label>
+          <input type="number" class="min-size" value="2.0" step="0.1">
+          <label>Max Size (rem):</label>
+          <input type="number" class="max-size" value="2.5" step="0.1">
+        </div>
+      </div>
+      <div class="preview-item" data-element="text">
+        <span class="element-label">Text</span>
+        <div class="size-controls">
+          <label>Min Size (rem):</label>
+          <input type="number" class="min-size" value="1.4" step="0.1">
+          <label>Max Size (rem):</label>
+          <input type="number" class="max-size" value="1.6" step="0.1">
+        </div>
+      </div>
+      <div class="preview-item" data-element="small-text">
+        <span class="element-label">Small Text</span>
+        <div class="size-controls">
+          <label>Min Size (rem):</label>
+          <input type="number" class="min-size" value="1.2" step="0.1">
+          <label>Max Size (rem):</label>
+          <input type="number" class="max-size" value="1.4" step="0.1">
+        </div>
+      </div>
+      <div class="preview-item" data-element="text-button">
+        <span class="element-label">Button Text</span>
+        <div class="size-controls">
+          <label>Min Size (rem):</label>
+          <input type="number" class="min-size" value="1.3" step="0.1">
+          <label>Max Size (rem):</label>
+          <input type="number" class="max-size" value="1.5" step="0.1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Business Info Generator -->
+  <div class="tab-content" id="business-info">
+    <h3>Business Info Generator</h3>
+
+    <form class="business-info-form">
+      <section>
+        <h4>Contact Information</h4>
+        <div class="input-grid">          <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" value="(555) 123-4567">
+          </div>
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" value="contact@businessname.com">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h4>Address & Map Info</h4>
+        <div class="input-group">
+          <label for="address">Business Address</label>
+          <input type="text" id="address" value="123 Business Street, Suite 100, City, State 12345">
+        </div>
+        <div class="input-grid">
+          <div class="input-group">
+            <label for="mapEmbed">Google Maps Embed Code</label>
+            <textarea id="mapEmbed" rows="3"><iframe src="https://www.google.com/maps/embed?..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></textarea>
+          </div>
+          <div class="input-group">
+            <label for="mapLink">Google Maps Link</label>
+            <input type="url" id="mapLink" value="https://goo.gl/maps/example">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h4>Social Media Links</h4>
+        <div class="input-grid">
+          <div class="input-group">
+            <label for="facebook">Facebook</label>
+            <input type="url" id="facebook" value="https://facebook.com/businessname">
+          </div>
+          <div class="input-group">
+            <label for="instagram">Instagram</label>
+            <input type="url" id="instagram" value="https://instagram.com/businessname">
+          </div>
+          <div class="input-group">
+            <label for="linkedin">LinkedIn</label>
+            <input type="url" id="linkedin" value="https://linkedin.com/company/businessname">
+          </div>
+          <div class="input-group">
+            <label for="twitter">Twitter</label>
+            <input type="url" id="twitter" value="https://twitter.com/businessname">
+          </div>
+          <div class="input-group">
+            <label for="youtube">YouTube</label>
+            <input type="url" id="youtube" value="https://youtube.com/@businessname">
+          </div>
+          <div class="input-group">
+            <label for="tiktok">TikTok</label>
+            <input type="url" id="tiktok" value="https://tiktok.com/@businessname">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h4>⏰ Business Hours</h4>
+        <div class="business-hours-grid" id="businessHoursGrid">
+          <div class="hours-row">
+            <input type="text" class="days-input" placeholder="e.g., Mon - Sat" value="Mon - Sat">
+            <input type="text" class="hours-input" value="09:00 AM – 05:00 PM" placeholder="Enter hours or 'Closed'">
+            <button type="button" class="remove-hours-row btn-hover" title="Remove Row">×</button>
+          </div>
+          <div class="hours-row">
+            <input type="text" class="days-input" placeholder="e.g., Sun" value="Sun">
+            <input type="text" class="hours-input" value="Closed" placeholder="Enter hours or 'Closed'">
+            <button type="button" class="remove-hours-row btn-hover" title="Remove Row">×</button>
+          </div>
+        </div>
+        <button type="button" id="addBusinessHours" class="btn-hover">+ Add Business Hours</button>
+      </section>
+
+      <div class="action-buttons">
+        <button type="button" id="resetBusiness" class="btn-hover">Reset Form</button>
+        <button type="button" id="generateBusiness" class="btn-hover">Generate Code</button>
+      </div>
+
+      <div class="preview-section">
+        <div class="code-display">
+          <code id="businessOutput">Click "Generate Code" to create your business information code</code>
+          <button type="button" id="copyBusinessCode" class="btn-hover">Copy Code</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Updated Color Contrast Checker -->
+  <div class="tab-content" id="contrast-checker">
+    <h3>Color Contrast Checker</h3>
+    <div class="input-row">
+      <div class="input-group">
+        <label for="foregroundColor">Foreground Color</label>
+        <input type="color" id="foregroundColor" value="#000000">
+        <input type="text" id="foregroundColorText" value="#000000">
+      </div>
+      <div class="input-group">
+        <label for="backgroundColor">Background Color</label>
+        <input type="color" id="backgroundColor" value="#ffffff">
+        <input type="text" id="backgroundColorText" value="#ffffff">
+      </div>
+    </div>
+    <button id="useEyedropper" class="btn-hover">Use Eyedropper</button>
+    <div id="contrastPreview" class="contrast-preview">Aa</div>
+    <div class="contrast-result">
+      <p id="contrastRatio">Contrast Ratio: 21:1</p>
+      <p id="wcagCompliance">WCAG Compliance: AAA</p>
+      <p id="wcagLargeText">Large Text Compliance: AAA</p>
+      <p id="wcagUI">UI Components Compliance: AA</p>
+    </div>
+    <div class="font-size-toggle">
+      <label>
+        <input type="radio" name="fontSize" value="normal" checked> Normal Text
+      </label>
+      <label>
+        <input type="radio" name="fontSize" value="large"> Large Text
+      </label>
+    </div>
+  </div>
+
+  <!-- Accent Color Shortcode Generator -->
+  <div class="tab-content" id="accent-color">
+    <h3>Accent Color Shortcode Generator</h3>
+    <p class="hint">Generate a PHP shortcode that uses your theme's accent color variable.</p>
+
+    <div class="input-grid">
+      <div class="input-group">
+        <label for="shortcodeName">Shortcode Name:</label>
+        <input type="text" id="shortcodeName" value="ac" placeholder="Enter shortcode name">
+      </div>
+      <div class="input-group">
+        <label for="cssVariable">CSS Variable/Color Code:</label>
+        <input type="text" id="cssVariable" value="var(--e-global-color-accent)" placeholder="Enter CSS variable">
+      </div>
+    </div>
+
+      <div class="action-buttons">
+      <button id="resetAccent" class="btn-hover">Reset</button>
+      <button id="generateShortcode" class="btn-hover">Generate Code</button>
+    </div>      <div class="code-display">
+        <code id="phpOutput"></code>
+        <button id="copyPHP" class="btn-hover">Copy PHP</button>
+      </div>
+
+      <div class="usage-info">
+        <h4>Usage Example:</h4>
+        <div class="code-display">
+          <code id="usageExample">This is an[ac]Accent Color Example.[/ac]</code>
+          <button id="copyUsage" class="btn-hover">Copy</button>
+        </div>
+      </div>
+    </div>  </div>
+
+  
+
+  <footer>
+    <p>Developed by <a href="https://webwithirfan.com" target="_blank" rel="noopener noreferrer">Web With Irfan</a></p>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
