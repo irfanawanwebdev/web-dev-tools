@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Web Dev Tools",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Web Dev Tools Chrome Extension – Simplify Your Workflow & Boost Productivity",
   "permissions": [
     "scripting",
@@ -13,12 +13,16 @@
   "host_permissions": [
     "<all_urls>"
   ],
-  "web_accessible_resources": [{
-    "resources": [
-      "vendor/*"
-    ],
-    "matches": ["<all_urls>"]
-  }],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "vendor/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
   "background": {
     "service_worker": "background.js"
   },
