@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Dev Tools</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-brand">DevTools</span>
+      <div class="sidebar-header-btns">
+        <button id="sidebarToggle" class="icon-btn" title="Toggle sidebar" aria-label="Toggle sidebar">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <button id="darkModeToggle" class="icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="sidebar-search">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" id="toolSearch" placeholder="Search tools…" autocomplete="off">
+    </div>
+
+    <nav class="sidebar-nav" id="sidebarNav">
+
+      <div class="nav-category collapsed" data-cat="css">
+        <button class="nav-category-label">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+          <span class="nav-cat-text">CSS Tools</span>
+          <svg class="nav-cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <button class="nav-item active" data-tab="clamp" title="Clamp Calculator">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/><path d="M16 6h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+          <span class="nav-label">Clamp Calculator</span>
+        </button>
+        <button class="nav-item" data-tab="box-shadow" title="Box Shadow">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="13" height="13" rx="2"/><path d="M8 21h13M21 8v13"/></svg>
+          <span class="nav-label">Box Shadow</span>
+        </button>
+        <button class="nav-item" data-tab="gradient" title="Gradient">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="currentColor" stop-opacity="0.2"/><stop offset="100%" stop-color="currentColor"/></linearGradient></defs><rect x="2" y="4" width="20" height="16" rx="2" fill="url(#g1)" stroke="currentColor"/></svg>
+          <span class="nav-label">Gradient</span>
+        </button>
+        <button class="nav-item" data-tab="fluid-design" title="Fluid Design System">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <span class="nav-label">Fluid Design System</span>
+        </button>
+        <button class="nav-item" data-tab="animation-builder" title="Animation Builder">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="nav-label">Animation Builder</span>
+        </button>
+        <button class="nav-item" data-tab="glassmorphism" title="Glassmorphism">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+          <span class="nav-label">Glassmorphism</span>
+        </button>
+        <button class="nav-item" data-tab="css-snippets" title="CSS Snippets">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" y1="3" x2="12" y2="21" stroke-dasharray="3 2"/></svg>
+          <span class="nav-label">CSS Snippets</span>
+        </button>
+      </div>
+
+      <div class="nav-category collapsed" data-cat="colors">
+        <button class="nav-category-label">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="19" cy="13" r="2.5"/><circle cx="6.5" cy="13" r="2.5"/><path d="M12 22a7 7 0 0 0 7-7H5a7 7 0 0 0 7 7z"/></svg>
+          <span class="nav-cat-text">Colors</span>
+          <svg class="nav-cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <button class="nav-item" data-tab="color" title="Color Picker">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.55 0 1-.45 1-1 0-.26-.1-.5-.26-.68-.44-.5-.84-.98-.84-1.82 0-1.1.9-2 2-2h1.18c3.03 0 5.5-2.47 5.5-5.5C21.42 6.15 17.16 2 12 2z"/><circle cx="6.5" cy="11.5" r="1.5"/><circle cx="9.5" cy="7.5" r="1.5"/><circle cx="14.5" cy="7.5" r="1.5"/><circle cx="17.5" cy="11.5" r="1.5"/></svg>
+          <span class="nav-label">Color Picker</span>
+        </button>
+        <button class="nav-item" data-tab="contrast-checker" title="Color Contrast">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20V2z" fill="currentColor" stroke="none" opacity="0.3"/><circle cx="12" cy="12" r="10"/></svg>
+          <span class="nav-label">Color Contrast</span>
+        </button>
+      </div>
+
+      <div class="nav-category collapsed" data-cat="text">
+        <button class="nav-category-label">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+          <span class="nav-cat-text">Text &amp; HTML</span>
+          <svg class="nav-cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <button class="nav-item" data-tab="lorem" title="Lorem Ipsum">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="nav-label">Lorem Ipsum</span>
+        </button>
+        <button class="nav-item" data-tab="text-case" title="Text Case">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+          <span class="nav-label">Text Case</span>
+        </button>
+        <button class="nav-item" data-tab="unit-converter" title="Unit Converter">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3"/></svg>
+          <span class="nav-label">Unit Converter</span>
+        </button>
+        <button class="nav-item" data-tab="html-beautify" title="HTML Beautify">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span class="nav-label">HTML Beautify</span>
+        </button>
+      </div>
+
+      <div class="nav-category collapsed" data-cat="typography">
+        <button class="nav-category-label">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <span class="nav-cat-text">Typography</span>
+          <svg class="nav-cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <button class="nav-item" data-tab="font" title="Font Checker">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+          <span class="nav-label">Font Checker</span>
+        </button>
+      </div>
+
+      <div class="nav-category collapsed" data-cat="seo">
+        <button class="nav-category-label">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          <span class="nav-cat-text">SEO Tools</span>
+          <svg class="nav-cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <button class="nav-item" data-tab="seo-preview" title="SEO Preview">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span class="nav-label">SEO Preview</span>
+        </button>
+        <button class="nav-item" data-tab="schema-generator" title="Schema Generator">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span class="nav-label">Schema Generator</span>
+        </button>
+        <button class="nav-item" data-tab="robots-txt" title="Robots.txt">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span class="nav-label">Robots.txt</span>
+        </button>
+        <button class="nav-item" data-tab="technical-seo" title="Technical SEO Audit">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span class="nav-label">Technical SEO</span>
+        </button>
+      </div>
+
+      <div class="nav-category collapsed" data-cat="dev">
+        <button class="nav-category-label">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span class="nav-cat-text">Dev Utils</span>
+          <svg class="nav-cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <button class="nav-item" data-tab="json-to-ts" title="JSON → TypeScript">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          <span class="nav-label">JSON → TypeScript</span>
+        </button>
+
+        <button class="nav-item" data-tab="css-inspector" title="CSS Inspector">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+          <span class="nav-label">CSS Inspector</span>
+        </button>
+      </div>
+
+      <div class="nav-category collapsed" data-cat="a11y">
+        <button class="nav-category-label">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+          <span class="nav-cat-text">Accessibility</span>
+          <svg class="nav-cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <button class="nav-item" data-tab="a11y-audit" title="A11y Audit">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><line x1="9" y1="12" x2="9" y2="20"/><line x1="15" y1="12" x2="15" y2="20"/></svg>
+          <span class="nav-label">A11y Audit</span>
+        </button>
+        <button class="nav-item" data-tab="broken-links" title="Broken Links">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+          <span class="nav-label">Broken Links</span>
+        </button>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+  <!-- CSS Clamp Calculator -->
+
+  <div class="tab-content active" id="clamp">
+    <h3>CSS Clamp Calculator</h3>
+  
+    <div class="preview-section">
+      <div class="code-display">
+        <code id="clampOutput">Your clamp() function will appear here</code>
+        <button id="copyClampBtn" class="btn-hover" disabled>Copy CSS</button>
+      </div>
+    </div>
+    <p id="clampError" class="clamp-error" aria-live="polite"></p>
+
+    <div class="clamp-preview-wrap">
+      <p class="clamp-preview-label">Live preview</p>
+      <p id="clampPreview" class="clamp-preview-text">The quick brown fox jumps over the lazy dog</p>
+      <label class="clamp-preview-slider-label">
+        Simulate viewport width: <strong id="clampViewportVal">760px</strong>
+        <input type="range" id="clampViewportSlider" min="320" max="1440" value="760">
+      </label>
+    </div>
+
+    <div class="clamp-format-row">
+      <span>Output format:</span>
+      <label><input type="radio" name="clampFormat" value="css" checked> CSS</label>
+      <label><input type="radio" name="clampFormat" value="tailwind"> Tailwind</label>
+      <label><input type="radio" name="clampFormat" value="scss"> SCSS var</label>
+      <label><input type="radio" name="clampFormat" value="custom-prop"> CSS var</label>
+    </div>
+
+    <div class="root-font-row">
+      <span>Root Font Size:</span>
+      <label><input type="radio" name="rootFontSize" value="16" checked> 100% (16px)</label>
+      <label><input type="radio" name="rootFontSize" value="10"> 62.5% (10px)</label>
+    </div>
+
+    <div class="input-grid">
+      <div class="input-group">
+        <label for="minDeviceWidth">Min Device Width</label>
+        <div class="input-with-unit">
+          <input type="number" id="minDeviceWidth" placeholder="e.g 320" value="320">
+          <span class="unit">px</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="maxDeviceWidth">Max Device Width</label>
+        <div class="input-with-unit">
+          <input type="number" id="maxDeviceWidth" placeholder="e.g 1280" value="1280">
+          <span class="unit">px</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="minFontSize">Minimum Font Size</label>
+        <div class="input-with-unit">
+          <input type="number" id="minFontSize" placeholder="e.g., 1" step="0.01" value="1">
+          <span class="unit">rem</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="maxFontSize">Maximum Font Size</label>
+        <div class="input-with-unit">
+          <input type="number" id="maxFontSize" placeholder="e.g., 1.5" step="0.01" value="1.5">
+          <span class="unit">rem</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button id="resetClamp" class="btn-hover">Reset</button>
+    </div>
+  </div>
+  
+
+  <!-- Lorem Ipsum Generator -->
+  <div class="tab-content" id="lorem">
+    <h3>Lorem Ipsum Generator</h3>
+    
+    <div class="input-grid">
+      <div class="input-group">
+        <label for="loremParagraphs">Paragraphs</label>
+        <input type="number" id="loremParagraphs" min="1" max="10" value="2">
+      </div>
+      <div class="input-group">
+        <label for="loremSentences">Sentences per Paragraph</label>
+        <input type="number" id="loremSentences" min="1" max="10" value="3">
+      </div>
+      <div class="input-group">
+        <label for="loremWordsPerSentence">Words per sentence:</label>
+        <input type="number" id="loremWordsPerSentence" value="8" min="3" max="20" />
+
+      </div>
+    </div>
+
+    <div class="preview-section">
+      <div class="preview-container text-preview">
+        <textarea id="loremOutput" rows="6" readonly></textarea>
+      </div>
+      <div class="action-buttons">
+        <button id="generateLorem" class="btn-hover">Generate</button>
+        <button id="copyLorem" class="btn-hover">Copy Text</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Color Picker -->
+  <div class="tab-content" id="color">
+    <h3>Color Picker</h3>
+    <button id="eyeDropperBtn" class="btn-hover">Pick From Page</button>
+    <input type="color" id="colorInput">
+    <div id="colorPreview"></div>
+    <div class="code-display">
+      <code id="hexCode">color: #000000;</code>
+      <button class="copy btn-hover" data-copy="hex">Copy</button>
+    </div>
+    <div class="code-display">
+      <code id="rgbCode">color: rgb(0,0,0);</code>
+      <button class="copy btn-hover" data-copy="rgb">Copy</button>
+    </div>
+    <div class="code-display">
+      <code id="hslCode">color: hsl(0, 0%, 0%);</code>
+      <button class="copy btn-hover" data-copy="hsl">Copy</button>
+    </div>
+  </div>
+
+  <!-- Font Checker -->
+  <div class="tab-content" id="font">
+    <h3>Font Checker</h3>
+    
+    <div class="preview-section">
+      <div class="button-group">
+        <button id="checkFontOnPage" class="btn-hover">Pick Font from Page</button>
+        <button id="resetFontPicker" class="btn-hover">Reset Picker</button>
+      </div>
+      <p class="hint">Hover over any text on the page and click to analyze its font properties.</p>
+      
+      <div class="code-display">
+        <code id="fontInfoOutput">Click "Pick Font from Page" to start...</code>
+        <button id="copyFontInfo" class="btn-hover">Copy CSS</button>
+      </div>
+      
+      <div id="fontPreviewBox" class="font-preview hidden">
+        <h4>Preview Text</h4>
+        <p id="fontPreview">The quick brown fox jumps over the lazy dog</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Box Shadow Generator -->
+  <div class="tab-content" id="box-shadow">
+    <div class="bs-header">
+      <h3>Box Shadow Generator</h3>
+      <div class="bs-header-actions">
+        <button id="bsAddLayer" class="bs-action-btn bs-action-btn--add">+ Layer</button>
+        <button id="bsResetBtn" class="bs-action-btn">Reset</button>
+      </div>
+    </div>
+
+    <div class="bs-presets">
+      <div class="bs-presets-hdr">
+        <span class="bs-section-lbl">Presets</span>
+        <div class="bs-cat-tabs" id="bsCatTabs">
+          <button class="bs-cat-tab active" data-cat="classic">Classic</button>
+          <button class="bs-cat-tab" data-cat="elevated">Elevated</button>
+          <button class="bs-cat-tab" data-cat="effects">Effects</button>
+          <button class="bs-cat-tab" data-cat="inner">Inner</button>
+        </div>
+      </div>
+      <div class="bs-preset-grid" id="bsPresetGrid"></div>
+    </div>
+
+    <div class="bs-main">
+      <div class="bs-preview-wrap">
+        <div class="bs-canvas" id="bsCanvas">
+          <div class="bs-shape-btns">
+            <button class="bs-shape-btn active" data-shape="box" title="Rectangle">&#9633;</button>
+            <button class="bs-shape-btn" data-shape="circle" title="Circle">&#9711;</button>
+            <button class="bs-shape-btn" data-shape="wide" title="Wide card">&#9645;</button>
+          </div>
+          <div id="bsPreviewEl" class="bs-shape-box">Box Shadow</div>
+        </div>
+        <div class="bs-canvas-controls">
+          <div class="bs-mini-ctrl">
+            <label>Canvas</label>
+            <input type="color" id="bsCanvasColor" value="#f8f9fa">
+          </div>
+          <div class="bs-mini-ctrl">
+            <label>Element</label>
+            <input type="color" id="bsElColor" value="#ffffff">
+          </div>
+          <div class="bs-mini-ctrl">
+            <label>Radius</label>
+            <div class="bs-mini-num-wrap">
+              <input type="number" id="bsBorderRadius" value="8" min="0" max="200" class="bs-num-sm">
+              <span class="bs-unit">px</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bs-code-wrap">
+        <div class="bs-code-hdr">
+          <div class="bs-fmt-tabs" id="bsFmtTabs">
+            <button class="bs-fmt-tab active" data-fmt="css">CSS</button>
+            <button class="bs-fmt-tab" data-fmt="tailwind">Tailwind</button>
+            <button class="bs-fmt-tab" data-fmt="scss">SCSS</button>
+          </div>
+          <button id="bsCopyBtn" class="btn-hover bs-copy-btn">Copy</button>
+        </div>
+        <div class="bs-code-block">
+          <code id="bsShadowCode"></code>
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-layers-wrap">
+      <span class="bs-section-lbl">Shadow Layers</span>
+      <div id="bsLayersList"></div>
+    </div>
+  </div>
+
+
+  <!-- Gradient Generator -->
+  <div class="tab-content" id="gradient">
+    <h3>Gradient Generator</h3>
+    
+    <div class="gradient-presets">
+      <h4>Presets</h4>
+      <div class="preset-grid">
+        <button class="gradient-preset btn-hover" data-preset="sunset">Sunset</button>
+        <button class="gradient-preset btn-hover" data-preset="ocean">Ocean</button>
+        <button class="gradient-preset btn-hover" data-preset="emerald">Emerald</button>
+        <button class="gradient-preset btn-hover" data-preset="aurora">Aurora</button>
+        <button class="gradient-preset btn-hover" data-preset="cosmic">Cosmic</button>
+        <button class="gradient-preset btn-hover" data-preset="royal">Royal</button>
+      </div>
+    </div>
+    
+    <div class="preview-section">
+      <div class="preview-container">
+        <div id="gradientPreview">Preview</div>
+      </div>
+      <div class="code-display">        <code id="gradientCode">background-image: linear-gradient(to right, #000000, #ffffff);</code>
+        <button id="copyGradient" class="btn-hover">Copy CSS</button>
+      </div>
+    </div>
+
+    <div class="gradient-controls">
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="gradientType">Type</label>
+          <select id="gradientType">
+            <option value="linear">Linear</option>
+            <option value="radial">Radial</option>
+            <option value="conic">Conic</option>
+          </select>
+        </div>
+        
+        <div class="input-group" id="linearControls">
+          <label for="gradientDirection">Direction</label>
+          <select id="gradientDirection">
+            <option value="to right">→ To Right</option>
+            <option value="to bottom">↓ To Bottom</option>
+            <option value="to left">← To Left</option>
+            <option value="to top">↑ To Top</option>
+            <option value="45deg">↗ 45° Diagonal</option>
+            <option value="-45deg">↘ -45° Diagonal</option>
+            <option value="custom">Custom Angle</option>
+          </select>
+          <div id="customAngleControls" class="hidden">
+            <div class="angle-control">
+              <input type="range" id="customAngle" min="0" max="360" value="90" step="1">
+              <div id="angleVisualizer">↑</div>
+              <span id="customAngleValue">90°</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group hidden" id="radialControls">
+          <label for="radialShape">Shape</label>
+          <select id="radialShape">
+            <option value="circle">Circle</option>
+            <option value="ellipse">Ellipse</option>
+          </select>
+        </div>
+      </div>
+
+      <h4>Color Stops</h4>
+      <div class="color-stops-wrapper">
+        <div id="colorStopsSlider"></div>
+        <div id="colorStops" class="color-stops-container">
+          <div class="color-stop">
+            <input type="color" class="gradientColor" value="#000000">
+            <input type="range" class="gradientStop" value="0" min="0" max="100">
+            <span class="position-label">0%</span>
+            <input type="number" class="color-stop-input" value="0" min="0" max="100">
+            <button class="remove-stop btn-hover" title="Remove Color Stop">×</button>
+          </div>
+          <div class="color-stop">
+            <input type="color" class="gradientColor" value="#ffffff">
+            <input type="range" class="gradientStop" value="100" min="0" max="100">
+            <span class="position-label">100%</span>
+            <input type="number" class="color-stop-input" value="100" min="0" max="100">
+            <button class="remove-stop btn-hover" title="Remove Color Stop">×</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gradient-btn-row">
+      <button id="addColorStop" class="btn-hover">+ Add Color Stop</button>
+      <button id="resetGradient" class="btn-hover">Reset</button>
+    </div>
+  </div>
+
+  <!-- Text Case Converter -->
+  <div class="tab-content" id="text-case">
+    <h3>Text Case Converter</h3>
+    
+    <div class="input-grid">
+      <div class="input-group" style="grid-column: 1 / -1;">
+        <textarea 
+          id="textInput" 
+          rows="6" 
+          placeholder="Enter or paste your text here..."
+          aria-label="Text to convert"></textarea>
+      </div>
+    </div>    
+    <div class="case-controls">
+      <div class="preset-grid">
+        <button class="case-btn btn-hover" data-case="upper">UPPERCASE</button>
+        <button class="case-btn btn-hover" data-case="lower">lowercase</button>
+        <button class="case-btn btn-hover" data-case="title">Title Case</button>
+        <button class="case-btn btn-hover" data-case="sentence">Sentence case</button>
+        <button class="case-btn btn-hover" data-case="capitalize">Capitalize Each Word</button>
+        <button class="case-btn btn-hover" data-case="toggle">tOGGLE cASE</button>
+        <button class="case-btn btn-hover" data-case="inverse">InVeRsE cAsE</button>
+        <button class="utility-btn btn-hover" id="removeSpaces">Remove Extra Spaces</button>
+        <button class="utility-btn btn-hover" id="undoButton" disabled>Undo (Ctrl+Z)</button>
+      </div>
+
+
+      <div class="action-row">
+        <button class="action-btn btn-hover" id="clearText">Clear Text</button>
+        <button class="action-btn btn-hover" id="copyText" disabled>Copy to Clipboard</button>
+        <button class="action-btn btn-hover" id="downloadText" disabled>Download as .txt</button>
+      </div>
+    </div>
+
+    <div class="stats-display">
+      <p id="textStats" aria-live="polite">Characters: 0 | Words: 0</p>
+    </div>
+  </div>
+  
+
+  <!-- Unit Converter -->
+  <div class="tab-content" id="unit-converter">
+    <h3>Unit Converter</h3>
+    <p id="viewportHint" class="viewport-hint">Active tab viewport: detecting…</p>
+
+    <div class="preview-section">
+      <div class="code-display">
+        <code id="conversionResult">0px = 0rem</code>
+        <button id="copyConversion" class="btn-hover">Copy</button>
+      </div>
+    </div>
+
+    <div class="converter-grid">
+      <div class="input-group">
+        <label for="baseFontSize">Base Font Size</label>
+        <div class="input-with-unit">
+          <input type="number" id="baseFontSize" value="16" min="1" max="100">
+          <span class="unit">px</span>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="inputValue">Value</label>
+        <div class="input-with-unit">
+          <input type="number" id="inputValue" placeholder="Enter value" step="0.1">
+          <select id="inputUnit">
+            <option value="px">px</option>
+            <option value="rem">rem</option>
+            <option value="em">em</option>
+            <option value="%">%</option>
+            <option value="vh">vh</option>
+            <option value="vw">vw</option>
+            <option value="vmin">vmin</option>
+            <option value="vmax">vmax</option>
+            <option value="pt">pt</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="conversion-arrow">
+        <span>⟶</span>
+      </div>
+
+      <div class="input-group">
+        <label for="outputUnit">Convert To</label>
+        <select id="outputUnit">
+          <option value="rem">rem</option>
+          <option value="px">px</option>
+          <option value="em">em</option>
+          <option value="%">%</option>
+          <option value="vh">vh</option>
+          <option value="vw">vw</option>
+          <option value="vmin">vmin</option>
+          <option value="vmax">vmax</option>
+          <option value="pt">pt</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="common-conversions">
+      <h4>Common Conversions</h4>
+      <div class="quick-convert-grid">
+        <button class="quick-convert btn-hover" data-value="16" data-from="px" data-to="rem">16px → rem</button>
+        <button class="quick-convert btn-hover" data-value="1" data-from="rem" data-to="px">1rem → px</button>
+        <button class="quick-convert btn-hover" data-value="100" data-from="%" data-to="px">100% → px</button>
+        <button class="quick-convert btn-hover" data-value="100" data-from="vh" data-to="px">100vh → px</button>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+
+  <!-- Updated Color Contrast Checker -->
+  <div class="tab-content" id="contrast-checker">
+    <h3>Color Contrast Checker</h3>
+    <div class="input-row">
+      <div class="input-group">
+        <label for="foregroundColor">Foreground Color</label>
+        <input type="color" id="foregroundColor" value="#000000">
+        <input type="text" id="foregroundColorText" value="#000000">
+      </div>
+      <div class="input-group">
+        <label for="backgroundColor">Background Color</label>
+        <input type="color" id="backgroundColor" value="#ffffff">
+        <input type="text" id="backgroundColorText" value="#ffffff">
+      </div>
+    </div>
+    <button id="useEyedropper" class="btn-hover">Use Eyedropper</button>
+    <div id="contrastPreview" class="contrast-preview">Aa</div>
+    <div class="contrast-result">
+      <p id="contrastRatio">Contrast Ratio: 21:1</p>
+      <p id="wcagCompliance">WCAG Compliance: AAA</p>
+      <p id="wcagLargeText">Large Text Compliance: AAA</p>
+      <p id="wcagUI">UI Components Compliance: AA</p>
+    </div>
+    <div class="font-size-toggle">
+      <label>
+        <input type="radio" name="fontSize" value="normal" checked> Normal Text
+      </label>
+      <label>
+        <input type="radio" name="fontSize" value="large"> Large Text
+      </label>
+    </div>
+  </div>
+
+
+  <!-- Fluid Design System (merged with Clamp Presets) -->
+  <div class="tab-content" id="fluid-design">
+    <h3>Fluid Design System</h3>
+
+    <div class="fluid-settings-grid">
+      <div class="input-group">
+        <label for="fluidBaseSize">Base Font (px)</label>
+        <div class="input-with-unit">
+          <input type="number" id="fluidBaseSize" value="16" min="12" max="24" step="0.5">
+          <span class="unit">px</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="fluidMinScale" title="Scale ratio applied at the minimum viewport (mobile)">Mobile Scale</label>
+        <select id="fluidMinScale">
+          <option value="1.125">1.125 - Major Second</option>
+          <option value="1.2" selected>1.2 - Minor Third</option>
+          <option value="1.25">1.25 - Major Third</option>
+          <option value="1.333">1.333 - Perfect Fourth</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="fluidMaxScale" title="Scale ratio applied at the maximum viewport (desktop)">Desktop Scale</label>
+        <select id="fluidMaxScale">
+          <option value="1.25">1.25 - Major Third</option>
+          <option value="1.333" selected>1.333 - Perfect Fourth</option>
+          <option value="1.5">1.5 - Perfect Fifth</option>
+          <option value="1.618">1.618 - Golden Ratio</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="fluidMinVp">Min Viewport</label>
+        <div class="input-with-unit">
+          <input type="number" id="fluidMinVp" value="320">
+          <span class="unit">px</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="fluidMaxVp">Max Viewport</label>
+        <div class="input-with-unit">
+          <input type="number" id="fluidMaxVp" value="1280">
+          <span class="unit">px</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="fluidVarPrefix" title="CSS custom property prefix - e.g. --font- produces --font-h1, --font-h2…">Variable Prefix</label>
+        <input type="text" id="fluidVarPrefix" value="--font-" placeholder="--font-" style="font-family:var(--font-mono);font-size:12px;">
+      </div>
+    </div>
+
+    <div class="clamp-format-row">
+      <span>Format:</span>
+      <label><input type="radio" name="fluidFormat" value="css" checked> CSS vars</label>
+      <label><input type="radio" name="fluidFormat" value="tailwind"> Tailwind</label>
+      <label><input type="radio" name="fluidFormat" value="scss"> SCSS map</label>
+    </div>
+
+    <div class="code-display" style="margin-top:10px;">
+      <code id="fluidOutput">/* Adjust settings above — your design tokens will appear here */</code>
+      <button id="copyFluid" class="btn-hover">Copy</button>
+    </div>
+
+    <div class="fluid-scale-preview" id="fluidScalePreview"></div>
+  </div>
+
+
+  <!-- Animation Builder -->
+  <div class="tab-content" id="animation-builder">
+    <h3>Animation Builder</h3>
+
+    <div class="animation-layout">
+      <div class="bezier-section">
+        <h4>Cubic Bezier</h4>
+        <div class="bezier-presets">
+          <button class="bezier-preset btn-hover" data-curve="0.25,0.1,0.25,1">ease</button>
+          <button class="bezier-preset btn-hover" data-curve="0.42,0,1,1">ease-in</button>
+          <button class="bezier-preset btn-hover" data-curve="0,0,0.58,1">ease-out</button>
+          <button class="bezier-preset btn-hover" data-curve="0.42,0,0.58,1">ease-in-out</button>
+          <button class="bezier-preset btn-hover" data-curve="0,0,1,1">linear</button>
+          <button class="bezier-preset btn-hover" data-curve="0.34,1.56,0.64,1">spring</button>
+        </div>
+        <canvas id="bezierCanvas" width="190" height="190"></canvas>
+        <div class="bezier-values">
+          <div class="bezier-coord-row">
+            <label>x1 <input type="number" id="bx1" value="0.25" min="0" max="1" step="0.01"></label>
+            <label>y1 <input type="number" id="by1" value="0.1" min="-2" max="3" step="0.01"></label>
+          </div>
+          <div class="bezier-coord-row">
+            <label>x2 <input type="number" id="bx2" value="0.25" min="0" max="1" step="0.01"></label>
+            <label>y2 <input type="number" id="by2" value="1" min="-2" max="3" step="0.01"></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="animation-settings">
+        <h4>Settings</h4>
+        <div class="input-grid">
+          <div class="input-group">
+            <label for="animDuration">Duration</label>
+            <div class="input-with-unit">
+              <input type="number" id="animDuration" value="0.5" step="0.1" min="0.1" max="10">
+              <span class="unit">s</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="animDelay">Delay</label>
+            <div class="input-with-unit">
+              <input type="number" id="animDelay" value="0" step="0.1" min="0" max="10">
+              <span class="unit">s</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="animIterations">Iterations</label>
+            <input type="text" id="animIterations" value="infinite" placeholder="1 or infinite">
+          </div>
+          <div class="input-group">
+            <label for="animDirection">Direction</label>
+            <select id="animDirection">
+              <option value="normal">normal</option>
+              <option value="reverse">reverse</option>
+              <option value="alternate" selected>alternate</option>
+              <option value="alternate-reverse">alternate-reverse</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="animName">Name</label>
+            <input type="text" id="animName" value="myAnimation">
+          </div>
+        </div>
+
+        <h4>Keyframes</h4>
+        <div class="keyframe-editor">
+          <div class="keyframe-row">
+            <label>From (0%)</label>
+            <input type="text" id="keyframeFrom" value="opacity: 0; transform: translateY(20px);">
+          </div>
+          <div class="keyframe-row">
+            <label>To (100%)</label>
+            <input type="text" id="keyframeTo" value="opacity: 1; transform: translateY(0);">
+          </div>
+        </div>
+
+        <div class="animation-preview-area">
+          <div id="animPreviewBox">Preview</div>
+          <button id="playAnimation" class="btn-hover">&#9654; Play</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-display" style="margin-top:12px;">
+      <code id="animOutput">/* Configure settings above */</code>
+      <button id="copyAnimation" class="btn-hover">Copy CSS</button>
+    </div>
+  </div>
+
+
+
+
+  <!-- SEO Preview Simulator -->
+  <div class="tab-content" id="seo-preview">
+    <h3>SEO Preview Simulator</h3>
+
+    <div class="seo-inputs">
+      <div class="input-group">
+        <div class="seo-label-row">
+          <label for="seoTitle">Title</label>
+          <small id="seoTitleCount" class="field-count">0 chars</small>
+        </div>
+        <input type="text" id="seoTitle" placeholder="Page title…" maxlength="200">
+      </div>
+      <div class="input-group">
+        <div class="seo-label-row">
+          <label for="seoDescription">Meta Description</label>
+          <small id="seoDescCount" class="field-count">0 chars</small>
+        </div>
+        <textarea id="seoDescription" rows="2" placeholder="Meta description…" maxlength="500"></textarea>
+      </div>
+      <div class="input-group">
+        <label for="seoUrl">URL</label>
+        <input type="text" id="seoUrl" placeholder="https://example.com/page">
+      </div>
+      <button id="fetchSeoData" class="btn-hover">Fetch from Active Tab</button>
+    </div>
+
+    <div class="seo-view-toggle">
+      <button class="seo-view-btn active" data-view="desktop">Desktop</button>
+      <button class="seo-view-btn" data-view="mobile">Mobile</button>
+    </div>
+
+    <div class="seo-serp-preview" id="serpPreview">
+      <div class="serp-site-info">
+        <div class="serp-favicon">G</div>
+        <div class="serp-url-breadcrumb" id="serpUrl">example.com</div>
+      </div>
+      <div class="serp-title" id="serpTitle">Page Title</div>
+      <div class="serp-description" id="serpDescription">Meta description will appear here…</div>
+    </div>
+
+    <div id="seoWarnings" class="seo-warnings"></div>
+  </div>
+
+
+  <!-- JSON to TypeScript -->
+  <div class="tab-content" id="json-to-ts">
+    <h3>JSON → TypeScript Interface</h3>
+
+    <div class="jts-layout">
+      <div class="jts-panel">
+        <label class="jts-panel-label" for="jsonInput">JSON Input</label>
+        <textarea id="jsonInput" class="jts-textarea" rows="12" placeholder='Paste JSON here…&#10;&#10;{&#10;  "name": "Alice",&#10;  "age": 30&#10;}'></textarea>
+        <p id="jsonError" class="clamp-error"></p>
+      </div>
+      <div class="jts-panel">
+        <label class="jts-panel-label">TypeScript Output</label>
+        <div class="code-display code-display--tall">
+          <code id="tsOutput">// TypeScript interface will appear here</code>
+          <button id="copyTs" class="btn-hover">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="jts-options">
+      <label><input type="checkbox" id="zodToggle"> Also generate Zod schema</label>
+      <label><input type="checkbox" id="optionalToggle"> Optional array-inferred fields</label>
+      <div class="input-group" style="max-width:180px;">
+        <label for="rootInterfaceName">Root name</label>
+        <input type="text" id="rootInterfaceName" value="Root" placeholder="Root">
+      </div>
+      <button id="convertJson" class="btn-hover">Convert</button>
+    </div>
+  </div>
+
+
+
+
+  <!-- Glassmorphism / Neumorphism Generator -->
+  <div class="tab-content" id="glassmorphism">
+    <h3>Glassmorphism Generator</h3>
+
+    <div class="glass-controls">
+      <div class="glass-mode-tabs">
+        <button class="glass-mode-btn active" data-mode="glass">Glassmorphism</button>
+        <button class="glass-mode-btn" data-mode="neumorphism">Neumorphism</button>
+      </div>
+
+      <div id="glassControls">
+        <div class="input-group">
+          <label for="glassBg">Background Color</label>
+          <div class="color-input-row">
+            <input type="color" id="glassBg" value="#ffffff">
+            <input type="number" id="glassBgOpacity" value="15" min="0" max="100"> <span>%</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="glassBlur">Blur Amount</label>
+          <div class="input-with-unit">
+            <input type="range" id="glassBlur" min="0" max="40" value="10">
+            <span id="glassBlurVal" class="unit">10px</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="glassBorderOpacity">Border Opacity</label>
+          <div class="input-with-unit">
+            <input type="range" id="glassBorderOpacity" min="0" max="100" value="20">
+            <span id="glassBorderOpacityVal" class="unit">20%</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="glassShadowOpacity">Shadow Opacity</label>
+          <div class="input-with-unit">
+            <input type="range" id="glassShadowOpacity" min="0" max="60" value="15">
+            <span id="glassShadowOpacityVal" class="unit">15%</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="glassBorderRadius">Border Radius</label>
+          <div class="input-with-unit">
+            <input type="range" id="glassBorderRadius" min="0" max="40" value="16">
+            <span id="glassBorderRadiusVal" class="unit">16px</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="glassTextColor">Text Color</label>
+          <input type="color" id="glassTextColor" value="#ffffff">
+        </div>
+        <div class="input-group">
+          <label for="glassBgScene">Scene Background</label>
+          <select id="glassBgScene">
+            <option value="gradient-purple">Purple Gradient</option>
+            <option value="gradient-blue">Blue Gradient</option>
+            <option value="gradient-sunset">Sunset Gradient</option>
+            <option value="solid-dark">Dark Solid</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="neumControls" class="hidden">
+        <div class="input-group">
+          <label for="neumBg">Background Color</label>
+          <input type="color" id="neumBg" value="#e0e5ec">
+        </div>
+        <div class="input-group">
+          <label for="neumRadius">Border Radius</label>
+          <div class="input-with-unit">
+            <input type="range" id="neumRadius" min="0" max="50" value="20">
+            <span id="neumRadiusVal" class="unit">20px</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="neumIntensity">Shadow Intensity</label>
+          <div class="input-with-unit">
+            <input type="range" id="neumIntensity" min="1" max="30" value="10">
+            <span id="neumIntensityVal" class="unit">10px</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Mode</label>
+          <div class="button-group" style="margin:0;">
+            <button class="neum-mode-btn active btn-hover" data-nmode="flat">Flat</button>
+            <button class="neum-mode-btn btn-hover" data-nmode="concave">Concave</button>
+            <button class="neum-mode-btn btn-hover" data-nmode="convex">Convex</button>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="neumTextColor">Text Color</label>
+          <input type="color" id="neumTextColor" value="#4a5568">
+        </div>
+      </div>
+    </div>
+
+    <div class="code-display" style="margin-top:12px;">
+      <code id="glassOutput">/* CSS will appear here */</code>
+      <button id="copyGlass" class="btn-hover">Copy CSS</button>
+    </div>
+    <p id="glassContrastWarning" class="clamp-error"></p>
+
+    <div class="glass-preview-area" style="margin-top:12px;">
+      <div id="glassScene" class="glass-scene glass-scene--gradient-purple">
+        <div id="glassCard" class="glass-card">
+          <h4>Glass Card</h4>
+          <p>Beautiful frosted glass effect</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CSS Snippets -->
+  <div class="tab-content" id="css-snippets">
+    <h3>Modern CSS Snippets</h3>
+
+    <div class="snippets-tabs">
+      <button class="snippet-tab-btn active" data-stab="container">Container Query</button>
+      <button class="snippet-tab-btn" data-stab="logical">Logical Props</button>
+      <button class="snippet-tab-btn" data-stab="has">:has() Builder</button>
+    </div>
+
+    <div class="snippet-content active" id="snip-container">
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="cqContainerName">Container Name</label>
+          <input type="text" id="cqContainerName" value="card" placeholder="card">
+        </div>
+        <div class="input-group">
+          <label for="cqContainerType">Container Type</label>
+          <select id="cqContainerType">
+            <option value="inline-size">inline-size</option>
+            <option value="size">size</option>
+          </select>
+        </div>
+      </div>
+      <div id="cqBreakpoints">
+        <div class="cq-breakpoint-row">
+          <input type="number" class="cq-bp-width" value="400" placeholder="400">
+          <span>px</span>
+          <input type="text" class="cq-bp-css" value="font-size: 1.25rem; padding: 1.5rem;" placeholder="CSS properties…">
+          <button class="remove-cq-bp btn-hover" title="Remove">×</button>
+        </div>
+        <div class="cq-breakpoint-row">
+          <input type="number" class="cq-bp-width" value="700" placeholder="700">
+          <span>px</span>
+          <input type="text" class="cq-bp-css" value="font-size: 1.5rem; padding: 2rem;" placeholder="CSS properties…">
+          <button class="remove-cq-bp btn-hover" title="Remove">×</button>
+        </div>
+      </div>
+      <button id="addCqBp" class="btn-hover">+ Add Breakpoint</button>
+      <div class="code-display" style="margin-top:10px;">
+        <code id="cqOutput">/* Container query CSS */</code>
+        <button id="copyCq" class="btn-hover">Copy CSS</button>
+      </div>
+    </div>
+
+    <div class="snippet-content hidden" id="snip-logical">
+      <p class="hint">Convert physical CSS properties to logical equivalents for better right-to-left and left-to-right support.</p>
+      <textarea id="logicalInput" rows="6" placeholder="Paste CSS with physical properties…&#10;&#10;margin-left: 16px;&#10;padding-right: 24px;&#10;border-top: 1px solid #ccc;"></textarea>
+      <button id="convertLogical" class="btn-hover" style="margin:8px 0;">Convert to Logical</button>
+      <div class="code-display">
+        <code id="logicalOutput">/* Converted CSS will appear here */</code>
+        <button id="copyLogical" class="btn-hover">Copy CSS</button>
+      </div>
+    </div>
+
+    <div class="snippet-content hidden" id="snip-has">
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="hasParent">Parent selector</label>
+          <input type="text" id="hasParent" value=".card" placeholder=".card">
+        </div>
+        <div class="input-group">
+          <label for="hasChild">Contains (:has)</label>
+          <input type="text" id="hasChild" value="img" placeholder="img, .active, input:focus…">
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="hasProperties">CSS properties when matched</label>
+        <textarea id="hasProperties" rows="3">border: 2px solid var(--accent);
+background: var(--bg-elevated);</textarea>
+      </div>
+      <div class="code-display" style="margin-top:8px;">
+        <code id="hasOutput">/* :has() CSS */</code>
+        <button id="copyHas" class="btn-hover">Copy CSS</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Schema Generator -->
+  <div class="tab-content" id="schema-generator">
+    <h3>Schema Generator (JSON-LD)</h3>
+
+    <div class="schema-type-row">
+      <label>Schema type:</label>
+      <select id="schemaType">
+        <option value="Article">Article</option>
+        <option value="Product">Product</option>
+        <option value="FAQPage">FAQ Page</option>
+        <option value="LocalBusiness">Local Business</option>
+      </select>
+    </div>
+
+    <div id="schemaFields"></div>
+
+    <div class="code-display" style="margin-top:12px;">
+      <code id="schemaOutput">/* Select a schema type and fill the fields */</code>
+      <button id="copySchema" class="btn-hover">Copy JSON-LD</button>
+    </div>
+    <p id="schemaValidation" class="clamp-error"></p>
+  </div>
+
+
+  <!-- Robots.txt Generator -->
+  <div class="tab-content" id="robots-txt">
+    <h3>Robots.txt Generator</h3>
+
+    <div class="robots-options">
+      <h4>Common Bots</h4>
+      <div class="robots-toggles">
+        <label class="robots-toggle"><input type="checkbox" class="bot-toggle" data-bot="GPTBot"> Block GPTBot (ChatGPT)</label>
+        <label class="robots-toggle"><input type="checkbox" class="bot-toggle" data-bot="Claude-Web"> Block Claude AI</label>
+        <label class="robots-toggle"><input type="checkbox" class="bot-toggle" data-bot="Google-Extended"> Block Google Bard/Gemini</label>
+        <label class="robots-toggle"><input type="checkbox" class="bot-toggle" data-bot="CCBot"> Block Common Crawl</label>
+        <label class="robots-toggle"><input type="checkbox" class="bot-toggle" data-bot="Googlebot"> Block Googlebot</label>
+        <label class="robots-toggle"><input type="checkbox" class="bot-toggle" data-bot="Bingbot"> Block Bingbot</label>
+      </div>
+
+      <h4>Disallow Paths</h4>
+      <div id="robotsDisallowList">
+        <div class="robots-path-row">
+          <select class="robots-ua-select">
+            <option value="*">All (*)</option>
+            <option value="Googlebot">Googlebot</option>
+            <option value="Bingbot">Bingbot</option>
+          </select>
+          <input type="text" class="robots-path-input" value="/admin/" placeholder="/path/">
+          <button class="remove-robots-path btn-hover">×</button>
+        </div>
+      </div>
+      <button id="addRobotsPath" class="btn-hover">+ Add Disallow</button>
+
+      <h4>Sitemap</h4>
+      <div class="input-group">
+        <label for="robotsSitemap">Sitemap URL (optional)</label>
+        <input type="text" id="robotsSitemap" placeholder="https://example.com/sitemap.xml">
+      </div>
+    </div>
+
+    <div class="code-display" style="margin-top:12px;">
+      <code id="robotsOutput">User-agent: *&#10;Disallow:</code>
+      <button id="copyRobots" class="btn-hover">Copy robots.txt</button>
+    </div>
+  </div>
+
+
+  <!-- HTML Beautify / Minify -->
+  <div class="tab-content" id="html-beautify">
+    <h3>HTML Beautify / Minify</h3>
+
+    <label class="jts-panel-label" for="hbmInput">HTML Input</label>
+    <textarea id="hbmInput" class="jts-textarea" style="margin-bottom:10px;" rows="9" placeholder="Paste HTML here…"></textarea>
+
+    <div class="hbm-actions">
+      <button id="hbmBeautify" class="btn-hover">Beautify</button>
+      <button id="hbmMinify" class="btn-hover">Minify</button>
+      <label class="hbm-option"><input type="checkbox" id="hbmRemoveComments" checked> Remove comments</label>
+    </div>
+    <p id="hbmError" class="clamp-error"></p>
+
+    <label class="jts-panel-label" style="display:block;margin:10px 0 4px;">Output</label>
+    <div class="code-display code-display--tall">
+      <code id="hbmOutput"><!-- Output will appear here --></code>
+      <button id="copyHbm" class="btn-hover">Copy</button>
+    </div>
+  </div>
+
+
+
+
+  <!-- CSS Inspector -->
+  <div class="tab-content" id="css-inspector">
+    <h3>CSS Inspector</h3>
+    <p class="tool-intro">Opens a floating inspector panel on the page. Hover to inspect elements live, then click any element to lock the data. Reopen the extension to view the locked results.</p>
+
+    <div class="inspect-bar">
+      <button id="startCssInspect" class="btn-primary inspect-start-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+        Start Inspecting
+      </button>
+      <button id="stopCssInspect" class="btn-hover inspect-stop-btn" disabled>Clear</button>
+      <div class="inspect-options">
+        <label class="inspect-opt"><input type="checkbox" id="inspectShowSpacing"> Spacing overlay</label>
+      </div>
+    </div>
+
+    <div id="inspectorStatusBar" class="inspect-statusbar inspect-statusbar--inactive">
+      <span id="inspectorStatusText">Inactive - click Start Inspecting to begin</span>
+    </div>
+
+    <div id="inspectorEmpty" class="inspect-empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40" opacity="0.3"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+      <p>Click Start Inspecting - the popup closes and a floating panel appears on the page</p>
+      <small>Click any element to lock · <kbd>Esc</kbd> to stop · reopen ext to view data</small>
+    </div>
+
+    <div id="inspectorData" class="inspect-data hidden"></div>
+  </div>
+
+
+
+
+  <!-- Technical SEO Audit -->
+  <div class="tab-content" id="technical-seo">
+    <h3>Technical SEO Audit</h3>
+    <div class="tseo-intro">
+      <p>Scans the active tab for technical SEO issues that affect indexing and ranking.</p>
+      <button id="runTechSEO" class="btn-hover">Audit Active Tab</button>
+    </div>
+    <div id="techSEOResults" class="tseo-results hidden">
+      <div id="techSEOSummary" class="tseo-summary"></div>
+      <div id="techSEOList" class="tseo-list"></div>
+    </div>
+  </div>
+
+
+  <!-- Accessibility Audit -->
+  <div class="tab-content" id="a11y-audit">
+    <h3>Accessibility Quick Audit</h3>
+
+    <div class="a11y-intro">
+      <p>Scans the active tab for common accessibility issues.</p>
+      <button id="runA11yAudit" class="btn-hover">Audit Active Tab</button>
+    </div>
+
+    <div id="a11yResults" class="a11y-results hidden">
+      <div id="a11ySummary" class="a11y-summary"></div>
+      <div id="a11yIssueList" class="a11y-issue-list"></div>
+    </div>
+  </div>
+
+
+  <!-- Broken Links Checker -->
+  <div class="tab-content" id="broken-links">
+    <h3>Broken Links Checker</h3>
+
+    <div class="blc-controls">
+      <div class="blc-filters-row">
+        <label class="blc-toggle"><input type="checkbox" id="blcIgnoreAnchors" checked> Ignore #anchors</label>
+        <label class="blc-toggle"><input type="checkbox" id="blcIgnoreMailto" checked> Ignore mailto/tel</label>
+        <label class="blc-toggle"><input type="checkbox" id="blcCheckExternal" checked> Check external</label>
+        <label class="blc-toggle"><input type="checkbox" id="blcCheckInternal" checked> Check internal</label>
+      </div>
+      <div class="blc-action-row">
+        <button id="blcScanBtn" class="btn-hover blc-scan-btn">Scan Active Tab</button>
+        <button id="blcHighlightBtn" class="btn-hover" disabled>Highlight on Page</button>
+        <button id="blcClearBtn" class="btn-hover" disabled>Clear Highlights</button>
+      </div>
+      <div class="blc-context-row">
+        <div id="blcScanContext" class="blc-scan-context hidden"></div>
+        <button id="blcResetBtn" class="blc-reset-link hidden" title="Clear stored results">× Clear Results</button>
+      </div>
+    </div>
+
+    <div id="blcProgress" class="blc-progress hidden">
+      <div class="blc-progress-bar-wrap">
+        <div id="blcProgressBar" class="blc-progress-bar" style="width:0%"></div>
+      </div>
+      <div class="blc-progress-footer">
+        <span id="blcProgressText" class="blc-progress-text">Scanning 0 / 0 links…</span>
+        <button id="blcCancelBtn" class="btn-hover blc-cancel-btn">Cancel</button>
+      </div>
+    </div>
+
+    <div id="blcResults" class="blc-results hidden">
+      <div class="blc-summary">
+        <div class="blc-score-wrap">
+          <div class="blc-score" id="blcScore">
+            <span class="blc-score-value" id="blcScoreValue">—</span>
+            <span class="blc-score-label">Health</span>
+          </div>
+        </div>
+        <div class="blc-counts">
+          <div class="blc-count blc-count--total" data-filter="all"><span id="blcTotal">0</span><label>Total</label></div>
+          <div class="blc-count blc-count--broken" data-filter="broken"><span id="blcBroken">0</span><label>Broken</label></div>
+          <div class="blc-count blc-count--redirect" data-filter="redirect"><span id="blcRedirect">0</span><label>Redirects</label></div>
+          <div class="blc-count blc-count--valid" data-filter="valid"><span id="blcValid">0</span><label>Valid</label></div>
+          <div class="blc-count blc-count--external" data-filter="external"><span id="blcExternal">0</span><label>External</label></div>
+        </div>
+      </div>
+
+      <div class="blc-toolbar">
+        <div class="blc-filter-btns">
+          <button class="blc-filter-btn active" data-filter="all">All</button>
+          <button class="blc-filter-btn" data-filter="broken">Broken</button>
+          <button class="blc-filter-btn" data-filter="redirect">Redirects</button>
+          <button class="blc-filter-btn" data-filter="valid">Valid</button>
+          <button class="blc-filter-btn" data-filter="external">External</button>
+          <button class="blc-filter-btn" data-filter="duplicate">Duplicates</button>
+          <button class="blc-filter-btn blc-filter-btn--seo" data-filter="http" title="Links using insecure HTTP protocol">HTTP</button>
+          <button class="blc-filter-btn blc-filter-btn--seo" data-filter="no-slash" title="Redirects caused by missing trailing slash">No Slash /</button>
+        </div>
+        <div class="blc-export-btns">
+          <button id="blcExportCSV" class="btn-hover">CSV</button>
+          <button id="blcExportJSON" class="btn-hover">JSON</button>
+          <button id="blcExportMD" class="btn-hover">MD</button>
+        </div>
+      </div>
+
+      <div id="blcInsights" class="blc-insights hidden"></div>
+      <div id="blcLinkList" class="blc-link-list"></div>
+    </div>
+  </div>
+
+
+  </main><!-- /.content -->
+</div><!-- /.app -->
+
+  <script src="popup.js"></script>
+</body>
+</html>

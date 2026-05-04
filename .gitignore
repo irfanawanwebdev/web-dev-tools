@@ -1,0 +1,16 @@
+# Claude AI settings
+.claude/
+
+# Distribution / build output
+dist/
+build/
+
+# VS Code settings
+.vscode/
+.gemini/
+
+# Node / npm
+node_modules/
+
+# macOS
+.DS_Store
