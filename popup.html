@@ -31,6 +31,11 @@
 
     <nav class="sidebar-nav" id="sidebarNav">
 
+      <button class="nav-item nav-item--home" data-tab="dashboard" title="Dashboard">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="nav-label">Dashboard</span>
+      </button>
+
       <div class="nav-category collapsed" data-cat="css">
         <button class="nav-category-label">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
@@ -81,6 +86,14 @@
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20V2z" fill="currentColor" stroke="none" opacity="0.3"/><circle cx="12" cy="12" r="10"/></svg>
           <span class="nav-label">Color Contrast</span>
         </button>
+        <button class="nav-item" data-tab="palette-extractor" title="Page Palette">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span class="nav-label">Page Palette</span>
+        </button>
+        <button class="nav-item" data-tab="color-scale" title="Color Scale">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18M3 10h14M3 15h10M3 20h6"/></svg>
+          <span class="nav-label">Color Scale</span>
+        </button>
       </div>
 
       <div class="nav-category collapsed" data-cat="text">
@@ -105,17 +118,9 @@
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           <span class="nav-label">HTML Beautify</span>
         </button>
-      </div>
-
-      <div class="nav-category collapsed" data-cat="typography">
-        <button class="nav-category-label">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          <span class="nav-cat-text">Typography</span>
-          <svg class="nav-cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <button class="nav-item" data-tab="font" title="Font Checker">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
-          <span class="nav-label">Font Checker</span>
+        <button class="nav-item" data-tab="encoder-decoder" title="Encoder / Decoder">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          <span class="nav-label">Encoder / Decoder</span>
         </button>
       </div>
 
@@ -141,6 +146,10 @@
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           <span class="nav-label">Technical SEO</span>
         </button>
+        <button class="nav-item" data-tab="headings-outline" title="Headings Outline">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="12" y1="18" x2="20" y2="18"/></svg>
+          <span class="nav-label">Headings Outline</span>
+        </button>
       </div>
 
       <div class="nav-category collapsed" data-cat="dev">
@@ -154,9 +163,41 @@
           <span class="nav-label">JSON → TypeScript</span>
         </button>
 
+        <button class="nav-item" data-tab="json-formatter" title="JSON Formatter / Validator">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5a2 2 0 0 0 2 2h1"/><path d="M16 3h1a2 2 0 0 1 2 2v5a2 2 0 0 0 2 2 2 2 0 0 0-2 2v5a2 2 0 0 1-2 2h-1"/></svg>
+          <span class="nav-label">JSON Formatter</span>
+        </button>
+        <button class="nav-item" data-tab="diff-checker" title="Diff Checker">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8H2l3-3 3 3H5v8h3l-3 3-3-3h3z" fill="currentColor" stroke="none"/><rect x="14" y="5" width="7" height="6" rx="1"/><rect x="14" y="13" width="7" height="6" rx="1"/></svg>
+          <span class="nav-label">Diff Checker</span>
+        </button>
+        <button class="nav-item" data-tab="viewport-tester" title="Responsive Viewport Tester">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="13" rx="2"/><rect x="14" y="9" width="8" height="11" rx="1.5"/></svg>
+          <span class="nav-label">Responsive</span>
+        </button>
+        <button class="nav-item" data-tab="ruler-overlay" title="Pixel Ruler &amp; Overlay">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l12-6 6 12-12 6z" transform="rotate(0)"/><path d="M16 3l1.5 3M13 4.5L14 6.5M10 6l1.5 3M7 7.5L8 9.5"/></svg>
+          <span class="nav-label">Ruler &amp; Overlay</span>
+        </button>
         <button class="nav-item" data-tab="css-inspector" title="CSS Inspector">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
           <span class="nav-label">CSS Inspector</span>
+        </button>
+        <button class="nav-item" data-tab="component-extractor" title="Component Extractor">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          <span class="nav-label">Component Extractor</span>
+        </button>
+        <button class="nav-item" data-tab="font" title="Font Checker">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+          <span class="nav-label">Font Checker</span>
+        </button>
+        <button class="nav-item" data-tab="full-screenshot" title="Full Page Screenshot">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="nav-label">Screenshot</span>
+        </button>
+        <button class="nav-item" data-tab="tech-stack" title="Tech Stack Detector">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span class="nav-label">Tech Stack</span>
         </button>
       </div>
 
@@ -174,13 +215,75 @@
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
           <span class="nav-label">Broken Links</span>
         </button>
+        <button class="nav-item" data-tab="cvd-sim" title="Color Blindness Simulator">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="nav-label">Color Blindness</span>
+        </button>
+      </div>
+
+      <div class="nav-category collapsed" data-cat="ai">
+        <button class="nav-category-label">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg>
+          <span class="nav-cat-text">AI Tools</span>
+          <svg class="nav-cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <button class="nav-item" data-tab="copy-markdown" title="Copy as Markdown">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M6.5 15v-5l2.5 2.8L11.5 10v5"/><path d="M16.5 10v4.5"/><path d="M14.5 12.5l2 2 2-2"/></svg>
+          <span class="nav-label">Copy as Markdown</span>
+        </button>
+        <button class="nav-item" data-tab="ai-readiness" title="AI Readiness Audit">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="9" width="14" height="10" rx="2"/><path d="M12 9V5.5"/><circle cx="12" cy="4" r="1.5"/><path d="M9.5 13.5h.01M14.5 13.5h.01"/><path d="M9.5 16.5h5"/><path d="M5 12H3M21 12h-2"/></svg>
+          <span class="nav-label">AI Readiness</span>
+        </button>
+        <button class="nav-item" data-tab="llms-txt" title="llms.txt Generator + Viewer">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity=".0"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>
+          <span class="nav-label">llms.txt</span>
+        </button>
       </div>
 
     </nav>
+
+    <div class="sidebar-footer">
+      <span class="sidebar-credit">Made with <span class="heart">&#9829;</span> by <strong>M Irfan Awan</strong></span>
+      <div class="sidebar-links">
+        <a href="https://github.com/irfanawanwebdev/" target="_blank" rel="noopener noreferrer" class="sidebar-link" title="GitHub: irfanawanwebdev" aria-label="GitHub profile">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+        </a>
+        <a href="https://webwithirfan.com" target="_blank" rel="noopener noreferrer" class="sidebar-link" title="webwithirfan.com" aria-label="Website">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </a>
+      </div>
+    </div>
   </aside>
 
   <!-- MAIN CONTENT -->
   <main class="content">
+
+  <!-- Tool header — populated by JS, hidden on dashboard -->
+  <div class="tool-header hidden" id="toolHeader">
+    <button id="thHome" class="th-home" title="Back to Dashboard" aria-label="Back to Dashboard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </button>
+    <span class="th-icon" id="thIcon"></span>
+    <span class="th-name" id="thName"></span>
+    <span class="th-cat" id="thCat"></span>
+    <button id="thStar" class="th-star" title="Toggle starred" aria-label="Toggle starred">☆</button>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="tab-content" id="dashboard">
+    <div class="dash-header">
+      <h3>Dashboard</h3>
+      <p class="dash-sub">All your tools at a glance. Star the ones you use most.</p>
+    </div>
+
+    <div class="dash-search">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" id="dashSearch" placeholder="Search tools by name, category or keyword…" autocomplete="off">
+    </div>
+
+    <div id="dashContent"></div>
+  </div>
 
   <!-- CSS Clamp Calculator -->
 
@@ -193,10 +296,10 @@
         <button id="copyClampBtn" class="btn-hover" disabled>Copy CSS</button>
       </div>
     </div>
-    <p id="clampError" class="clamp-error" aria-live="polite"></p>
+    <p id="clampError" class="field-error" aria-live="polite"></p>
 
-    <div class="clamp-preview-wrap">
-      <p class="clamp-preview-label">Live preview</p>
+    <div class="preview-panel">
+      <p class="panel-label">Live preview</p>
       <p id="clampPreview" class="clamp-preview-text">The quick brown fox jumps over the lazy dog</p>
       <label class="clamp-preview-slider-label">
         Simulate viewport width: <strong id="clampViewportVal">760px</strong>
@@ -204,7 +307,7 @@
       </label>
     </div>
 
-    <div class="clamp-format-row">
+    <div class="option-row">
       <span>Output format:</span>
       <label><input type="radio" name="clampFormat" value="css" checked> CSS</label>
       <label><input type="radio" name="clampFormat" value="tailwind"> Tailwind</label>
@@ -212,7 +315,13 @@
       <label><input type="radio" name="clampFormat" value="custom-prop"> CSS var</label>
     </div>
 
-    <div class="root-font-row">
+    <div class="option-row">
+      <span>Font size unit:</span>
+      <label><input type="radio" name="clampUnit" value="rem" checked> rem</label>
+      <label><input type="radio" name="clampUnit" value="px"> px</label>
+    </div>
+
+    <div class="option-row">
       <span>Root Font Size:</span>
       <label><input type="radio" name="rootFontSize" value="16" checked> 100% (16px)</label>
       <label><input type="radio" name="rootFontSize" value="10"> 62.5% (10px)</label>
@@ -237,14 +346,14 @@
         <label for="minFontSize">Minimum Font Size</label>
         <div class="input-with-unit">
           <input type="number" id="minFontSize" placeholder="e.g., 1" step="0.01" value="1">
-          <span class="unit">rem</span>
+          <span class="unit" id="minFontUnit">rem</span>
         </div>
       </div>
       <div class="input-group">
         <label for="maxFontSize">Maximum Font Size</label>
         <div class="input-with-unit">
           <input type="number" id="maxFontSize" placeholder="e.g., 1.5" step="0.01" value="1.5">
-          <span class="unit">rem</span>
+          <span class="unit" id="maxFontUnit">rem</span>
         </div>
       </div>
     </div>
@@ -261,27 +370,39 @@
     
     <div class="input-grid">
       <div class="input-group">
-        <label for="loremParagraphs">Paragraphs</label>
-        <input type="number" id="loremParagraphs" min="1" max="10" value="2">
+        <label for="loremParagraphs">Paragraphs / List Items</label>
+        <input type="number" id="loremParagraphs" min="1" max="20" value="2">
       </div>
       <div class="input-group">
         <label for="loremSentences">Sentences per Paragraph</label>
         <input type="number" id="loremSentences" min="1" max="10" value="3">
       </div>
       <div class="input-group">
-        <label for="loremWordsPerSentence">Words per sentence:</label>
-        <input type="number" id="loremWordsPerSentence" value="8" min="3" max="20" />
-
+        <label for="loremWordsPerSentence">Words per Sentence</label>
+        <input type="number" id="loremWordsPerSentence" value="8" min="3" max="20">
       </div>
+    </div>
+
+    <div class="option-row">
+      <span>Format:</span>
+      <label><input type="radio" name="loremFormat" value="plain" checked> Plain text</label>
+      <label><input type="radio" name="loremFormat" value="html"> HTML &lt;p&gt;</label>
+      <label><input type="radio" name="loremFormat" value="ul"> HTML list</label>
+      <label><input type="radio" name="loremFormat" value="md"> Markdown list</label>
+    </div>
+
+    <div class="option-row">
+      <label><input type="checkbox" id="loremClassic" checked> Start with “Lorem ipsum dolor sit amet…”</label>
     </div>
 
     <div class="preview-section">
       <div class="preview-container text-preview">
-        <textarea id="loremOutput" rows="6" readonly></textarea>
+        <textarea id="loremOutput" class="code-input" rows="8" readonly></textarea>
       </div>
+      <p id="loremStats" class="hint" aria-live="polite"></p>
       <div class="action-buttons">
-        <button id="generateLorem" class="btn-hover">Generate</button>
-        <button id="copyLorem" class="btn-hover">Copy Text</button>
+        <button id="generateLorem" class="btn-hover">↻ Regenerate</button>
+        <button id="copyLorem" class="btn-hover">Copy</button>
       </div>
     </div>
   </div>
@@ -289,7 +410,11 @@
   <!-- Color Picker -->
   <div class="tab-content" id="color">
     <h3>Color Picker</h3>
-    <button id="eyeDropperBtn" class="btn-hover">Pick From Page</button>
+    <div class="color-actions">
+      <button id="eyeDropperBtn" class="btn-hover">Pick From Page</button>
+      <button id="sendToContrast" class="btn-ghost">Check Contrast →</button>
+      <button id="sendToScale" class="btn-ghost">Create Scale →</button>
+    </div>
     <input type="color" id="colorInput">
     <div id="colorPreview"></div>
     <div class="code-display">
@@ -304,6 +429,16 @@
       <code id="hslCode">color: hsl(0, 0%, 0%);</code>
       <button class="copy btn-hover" data-copy="hsl">Copy</button>
     </div>
+    <div class="code-display">
+      <code id="oklchCode">color: oklch(0% 0 0);</code>
+      <button class="copy btn-hover" data-copy="oklch">Copy</button>
+    </div>
+
+    <h4>Shades &amp; Tints <small class="hint-inline">click to copy</small></h4>
+    <div id="colorScale" class="color-scale"></div>
+
+    <h4>Recent <small class="hint-inline">click to select</small></h4>
+    <div id="recentColors" class="color-scale"></div>
   </div>
 
   <!-- Font Checker -->
@@ -312,10 +447,10 @@
     
     <div class="preview-section">
       <div class="button-group">
-        <button id="checkFontOnPage" class="btn-hover">Pick Font from Page</button>
+        <button id="checkFontOnPage" class="btn-hover">Open Font Inspector</button>
         <button id="resetFontPicker" class="btn-hover">Reset Picker</button>
       </div>
-      <p class="hint">Hover over any text on the page and click to analyze its font properties.</p>
+      <p class="hint">Opens a live floating panel on the page. Hover to analyze fonts in real time, click to pin and save (hovering keeps working, so pin as many as you like), and press Esc to exit. Pinned fonts appear here when you reopen the extension.</p>
       
       <div class="code-display">
         <code id="fontInfoOutput">Click "Pick Font from Page" to start...</code>
@@ -326,6 +461,8 @@
         <h4>Preview Text</h4>
         <p id="fontPreview">The quick brown fox jumps over the lazy dog</p>
       </div>
+
+      <div id="fontPins" class="font-pins"></div>
     </div>
   </div>
 
@@ -334,14 +471,14 @@
     <div class="bs-header">
       <h3>Box Shadow Generator</h3>
       <div class="bs-header-actions">
-        <button id="bsAddLayer" class="bs-action-btn bs-action-btn--add">+ Layer</button>
-        <button id="bsResetBtn" class="bs-action-btn">Reset</button>
+        <button id="bsAddLayer" class="btn-ghost btn-ghost--accent">+ Layer</button>
+        <button id="bsResetBtn" class="btn-ghost">Reset</button>
       </div>
     </div>
 
     <div class="bs-presets">
       <div class="bs-presets-hdr">
-        <span class="bs-section-lbl">Presets</span>
+        <span class="panel-label">Presets</span>
         <div class="bs-cat-tabs" id="bsCatTabs">
           <button class="bs-cat-tab active" data-cat="classic">Classic</button>
           <button class="bs-cat-tab" data-cat="elevated">Elevated</button>
@@ -397,7 +534,7 @@
     </div>
 
     <div class="bs-layers-wrap">
-      <span class="bs-section-lbl">Shadow Layers</span>
+      <span class="panel-label">Shadow Layers</span>
       <div id="bsLayersList"></div>
     </div>
   </div>
@@ -470,23 +607,7 @@
 
       <h4>Color Stops</h4>
       <div class="color-stops-wrapper">
-        <div id="colorStopsSlider"></div>
-        <div id="colorStops" class="color-stops-container">
-          <div class="color-stop">
-            <input type="color" class="gradientColor" value="#000000">
-            <input type="range" class="gradientStop" value="0" min="0" max="100">
-            <span class="position-label">0%</span>
-            <input type="number" class="color-stop-input" value="0" min="0" max="100">
-            <button class="remove-stop btn-hover" title="Remove Color Stop">×</button>
-          </div>
-          <div class="color-stop">
-            <input type="color" class="gradientColor" value="#ffffff">
-            <input type="range" class="gradientStop" value="100" min="0" max="100">
-            <span class="position-label">100%</span>
-            <input type="number" class="color-stop-input" value="100" min="0" max="100">
-            <button class="remove-stop btn-hover" title="Remove Color Stop">×</button>
-          </div>
-        </div>
+        <div id="colorStops" class="color-stops-container"></div>
       </div>
     </div>
     <div class="gradient-btn-row">
@@ -499,38 +620,42 @@
   <div class="tab-content" id="text-case">
     <h3>Text Case Converter</h3>
     
-    <div class="input-grid">
-      <div class="input-group" style="grid-column: 1 / -1;">
-        <textarea 
-          id="textInput" 
-          rows="6" 
-          placeholder="Enter or paste your text here..."
-          aria-label="Text to convert"></textarea>
-      </div>
-    </div>    
+    <textarea
+      id="textInput"
+      rows="6"
+      placeholder="Enter or paste your text here..."
+      aria-label="Text to convert"></textarea>
+    <p id="textStats" class="hint" aria-live="polite">Characters: 0 | Words: 0</p>
+
     <div class="case-controls">
-      <div class="preset-grid">
-        <button class="case-btn btn-hover" data-case="upper">UPPERCASE</button>
-        <button class="case-btn btn-hover" data-case="lower">lowercase</button>
-        <button class="case-btn btn-hover" data-case="title">Title Case</button>
-        <button class="case-btn btn-hover" data-case="sentence">Sentence case</button>
-        <button class="case-btn btn-hover" data-case="capitalize">Capitalize Each Word</button>
-        <button class="case-btn btn-hover" data-case="toggle">tOGGLE cASE</button>
-        <button class="case-btn btn-hover" data-case="inverse">InVeRsE cAsE</button>
-        <button class="utility-btn btn-hover" id="removeSpaces">Remove Extra Spaces</button>
-        <button class="utility-btn btn-hover" id="undoButton" disabled>Undo (Ctrl+Z)</button>
+      <p class="panel-label">Standard</p>
+      <div class="preset-grid case-grid">
+        <button class="case-btn" data-case="upper">UPPERCASE</button>
+        <button class="case-btn" data-case="lower">lowercase</button>
+        <button class="case-btn" data-case="title">Title Case</button>
+        <button class="case-btn" data-case="sentence">Sentence case</button>
+        <button class="case-btn" data-case="capitalize">Capitalize Each Word</button>
+        <button class="case-btn" data-case="toggle">tOGGLE cASE</button>
+        <button class="case-btn" data-case="inverse">InVeRsE cAsE</button>
+        <button class="case-btn" id="removeSpaces">Remove Extra Spaces</button>
       </div>
 
+      <p class="panel-label">Developer</p>
+      <div class="preset-grid case-grid">
+        <button class="case-btn" data-case="camel">camelCase</button>
+        <button class="case-btn" data-case="pascal">PascalCase</button>
+        <button class="case-btn" data-case="snake">snake_case</button>
+        <button class="case-btn" data-case="kebab">kebab-case</button>
+        <button class="case-btn" data-case="constant">CONSTANT_CASE</button>
+        <button class="case-btn" data-case="dot">dot.case</button>
+      </div>
 
       <div class="action-row">
-        <button class="action-btn btn-hover" id="clearText">Clear Text</button>
-        <button class="action-btn btn-hover" id="copyText" disabled>Copy to Clipboard</button>
-        <button class="action-btn btn-hover" id="downloadText" disabled>Download as .txt</button>
+        <button class="btn-hover" id="copyText" disabled>Copy</button>
+        <button class="btn-ghost" id="downloadText" disabled>Download .txt</button>
+        <button class="btn-ghost" id="undoButton" disabled title="Ctrl+Z">↶ Undo</button>
+        <button class="btn-ghost btn-ghost--danger" id="clearText">Clear</button>
       </div>
-    </div>
-
-    <div class="stats-display">
-      <p id="textStats" aria-live="polite">Characters: 0 | Words: 0</p>
     </div>
   </div>
   
@@ -575,7 +700,7 @@
       </div>
 
       <div class="conversion-arrow">
-        <span>⟶</span>
+        <button id="swapUnits" class="swap-units-btn" title="Swap units">⇄</button>
       </div>
 
       <div class="input-group">
@@ -594,6 +719,9 @@
       </div>
     </div>
     
+    <h4>All Units <small class="hint-inline">click a row to copy</small></h4>
+    <div id="unitTable" class="unit-table"></div>
+
     <div class="common-conversions">
       <h4>Common Conversions</h4>
       <div class="quick-convert-grid">
@@ -624,7 +752,11 @@
         <input type="text" id="backgroundColorText" value="#ffffff">
       </div>
     </div>
-    <button id="useEyedropper" class="btn-hover">Use Eyedropper</button>
+    <div class="contrast-actions">
+      <button id="pickFgBtn" class="btn-ghost">Pick Text Color</button>
+      <button id="pickBgBtn" class="btn-ghost">Pick Background</button>
+      <button id="swapContrastBtn" class="btn-ghost" title="Swap text and background colors">⇅ Swap</button>
+    </div>
     <div id="contrastPreview" class="contrast-preview">Aa</div>
     <div class="contrast-result">
       <p id="contrastRatio">Contrast Ratio: 21:1</p>
@@ -632,6 +764,7 @@
       <p id="wcagLargeText">Large Text Compliance: AAA</p>
       <p id="wcagUI">UI Components Compliance: AA</p>
     </div>
+    <div id="contrastSuggest" class="contrast-suggest"></div>
     <div class="font-size-toggle">
       <label>
         <input type="radio" name="fontSize" value="normal" checked> Normal Text
@@ -643,11 +776,73 @@
   </div>
 
 
+  <!-- Page Palette Extractor -->
+  <div class="tab-content" id="palette-extractor">
+    <h3>Page Palette Extractor</h3>
+    <p class="tool-intro">Scans the active tab's computed styles and lists every color in use across text, backgrounds and borders, with usage counts.</p>
+
+    <div class="pp-actions">
+      <button id="ppScanBtn" class="btn-hover">↻ Rescan</button>
+      <button id="ppExportVars" class="btn-ghost">Copy as CSS Variables</button>
+      <button id="ppExportJson" class="btn-ghost">Copy JSON</button>
+    </div>
+    <p id="ppError" class="field-error"></p>
+
+    <div id="ppResults" class="hidden">
+      <div class="pp-toolbar">
+        <span id="ppSummary" class="pp-summary"></span>
+        <div class="pp-filters">
+          <button class="pp-filter-btn active" data-filter="all">All</button>
+          <button class="pp-filter-btn" data-filter="text">Text</button>
+          <button class="pp-filter-btn" data-filter="bg">Background</button>
+          <button class="pp-filter-btn" data-filter="border">Border</button>
+        </div>
+      </div>
+      <div id="ppGrid" class="pp-grid"></div>
+    </div>
+  </div>
+
+
+  <!-- Color Scale Generator -->
+  <div class="tab-content" id="color-scale">
+    <h3>Color Scale Generator</h3>
+
+    <div class="input-grid">
+      <div class="input-group">
+        <label for="scaleBase">Base Color</label>
+        <div class="scale-base-row">
+          <input type="color" id="scaleBase" value="#4caf50">
+          <input type="text" id="scaleBaseText" value="#4caf50" class="u-mono-sm" maxlength="7">
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="scaleName">Token Name</label>
+        <input type="text" id="scaleName" value="brand" placeholder="brand" class="u-mono-sm">
+      </div>
+    </div>
+
+    <div id="scaleStrip" class="scale-strip"></div>
+    <p class="hint">Your base color is anchored at its nearest step (marked). Click any swatch to copy.</p>
+
+    <div class="option-row">
+      <span>Format:</span>
+      <label><input type="radio" name="scaleFormat" value="tailwind" checked> Tailwind v3</label>
+      <label><input type="radio" name="scaleFormat" value="tailwind4"> Tailwind v4 (OKLCH)</label>
+      <label><input type="radio" name="scaleFormat" value="css"> CSS vars</label>
+    </div>
+
+    <div class="code-display code-display--tall">
+      <code id="scaleOutput"></code>
+      <button id="copyScale" class="btn-hover">Copy</button>
+    </div>
+  </div>
+
+
   <!-- Fluid Design System (merged with Clamp Presets) -->
   <div class="tab-content" id="fluid-design">
     <h3>Fluid Design System</h3>
 
-    <div class="fluid-settings-grid">
+    <div class="input-grid">
       <div class="input-group">
         <label for="fluidBaseSize">Base Font (px)</label>
         <div class="input-with-unit">
@@ -689,19 +884,19 @@
       </div>
       <div class="input-group">
         <label for="fluidVarPrefix" title="CSS custom property prefix - e.g. --font- produces --font-h1, --font-h2…">Variable Prefix</label>
-        <input type="text" id="fluidVarPrefix" value="--font-" placeholder="--font-" style="font-family:var(--font-mono);font-size:12px;">
+        <input type="text" id="fluidVarPrefix" value="--font-" placeholder="--font-" class="u-mono-sm">
       </div>
     </div>
 
-    <div class="clamp-format-row">
+    <div class="option-row">
       <span>Format:</span>
       <label><input type="radio" name="fluidFormat" value="css" checked> CSS vars</label>
       <label><input type="radio" name="fluidFormat" value="tailwind"> Tailwind</label>
       <label><input type="radio" name="fluidFormat" value="scss"> SCSS map</label>
     </div>
 
-    <div class="code-display" style="margin-top:10px;">
-      <code id="fluidOutput">/* Adjust settings above — your design tokens will appear here */</code>
+    <div class="code-display u-mt-10">
+      <code id="fluidOutput">/* Adjust the settings above and your design tokens will appear here */</code>
       <button id="copyFluid" class="btn-hover">Copy</button>
     </div>
 
@@ -723,6 +918,10 @@
           <button class="bezier-preset btn-hover" data-curve="0.42,0,0.58,1">ease-in-out</button>
           <button class="bezier-preset btn-hover" data-curve="0,0,1,1">linear</button>
           <button class="bezier-preset btn-hover" data-curve="0.34,1.56,0.64,1">spring</button>
+          <button class="bezier-preset btn-hover" data-curve="0.36,0,0.66,-0.56">back-in</button>
+          <button class="bezier-preset btn-hover" data-curve="0.68,-0.6,0.32,1.6">back-in-out</button>
+          <button class="bezier-preset btn-hover" data-curve="0.16,1,0.3,1">expo-out</button>
+          <button class="bezier-preset btn-hover" data-curve="0.7,0,0.3,1">snap</button>
         </div>
         <canvas id="bezierCanvas" width="190" height="190"></canvas>
         <div class="bezier-values">
@@ -792,7 +991,7 @@
       </div>
     </div>
 
-    <div class="code-display" style="margin-top:12px;">
+    <div class="code-display u-mt-12">
       <code id="animOutput">/* Configure settings above */</code>
       <button id="copyAnimation" class="btn-hover">Copy CSS</button>
     </div>
@@ -834,8 +1033,11 @@
 
     <div class="seo-serp-preview" id="serpPreview">
       <div class="serp-site-info">
-        <div class="serp-favicon">G</div>
-        <div class="serp-url-breadcrumb" id="serpUrl">example.com</div>
+        <div class="serp-favicon" id="serpFaviconWrap"><span id="serpFaviconLetter">E</span><img id="serpFavicon" alt="" hidden></div>
+        <div class="serp-site-text">
+          <div class="serp-site-name" id="serpSiteName">Example</div>
+          <div class="serp-url-breadcrumb" id="serpUrl">example.com</div>
+        </div>
       </div>
       <div class="serp-title" id="serpTitle">Page Title</div>
       <div class="serp-description" id="serpDescription">Meta description will appear here…</div>
@@ -852,8 +1054,8 @@
     <div class="jts-layout">
       <div class="jts-panel">
         <label class="jts-panel-label" for="jsonInput">JSON Input</label>
-        <textarea id="jsonInput" class="jts-textarea" rows="12" placeholder='Paste JSON here…&#10;&#10;{&#10;  "name": "Alice",&#10;  "age": 30&#10;}'></textarea>
-        <p id="jsonError" class="clamp-error"></p>
+        <textarea id="jsonInput" class="code-input jts-textarea" rows="12" placeholder='Paste JSON here…&#10;&#10;{&#10;  "name": "Alice",&#10;  "age": 30&#10;}'></textarea>
+        <p id="jsonError" class="field-error"></p>
       </div>
       <div class="jts-panel">
         <label class="jts-panel-label">TypeScript Output</label>
@@ -866,12 +1068,13 @@
 
     <div class="jts-options">
       <label><input type="checkbox" id="zodToggle"> Also generate Zod schema</label>
-      <label><input type="checkbox" id="optionalToggle"> Optional array-inferred fields</label>
-      <div class="input-group" style="max-width:180px;">
+      <label><input type="checkbox" id="optionalToggle"> Mark all fields optional</label>
+      <div class="input-group u-maxw-180">
         <label for="rootInterfaceName">Root name</label>
         <input type="text" id="rootInterfaceName" value="Root" placeholder="Root">
       </div>
       <button id="convertJson" class="btn-hover">Convert</button>
+      <button id="resetJson" class="btn-ghost btn-ghost--danger">Reset</button>
     </div>
   </div>
 
@@ -901,6 +1104,13 @@
           <div class="input-with-unit">
             <input type="range" id="glassBlur" min="0" max="40" value="10">
             <span id="glassBlurVal" class="unit">10px</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="glassSaturation">Backdrop Saturation</label>
+          <div class="input-with-unit">
+            <input type="range" id="glassSaturation" min="100" max="200" value="100">
+            <span id="glassSaturationVal" class="unit">100%</span>
           </div>
         </div>
         <div class="input-group">
@@ -960,7 +1170,7 @@
         </div>
         <div class="input-group">
           <label>Mode</label>
-          <div class="button-group" style="margin:0;">
+          <div class="button-group u-m-0">
             <button class="neum-mode-btn active btn-hover" data-nmode="flat">Flat</button>
             <button class="neum-mode-btn btn-hover" data-nmode="concave">Concave</button>
             <button class="neum-mode-btn btn-hover" data-nmode="convex">Convex</button>
@@ -973,19 +1183,19 @@
       </div>
     </div>
 
-    <div class="code-display" style="margin-top:12px;">
-      <code id="glassOutput">/* CSS will appear here */</code>
-      <button id="copyGlass" class="btn-hover">Copy CSS</button>
-    </div>
-    <p id="glassContrastWarning" class="clamp-error"></p>
-
-    <div class="glass-preview-area" style="margin-top:12px;">
+    <div class="glass-preview-area u-mt-12">
       <div id="glassScene" class="glass-scene glass-scene--gradient-purple">
         <div id="glassCard" class="glass-card">
           <h4>Glass Card</h4>
           <p>Beautiful frosted glass effect</p>
         </div>
       </div>
+    </div>
+    <p id="glassContrastWarning" class="field-error"></p>
+
+    <div class="code-display u-mt-12">
+      <code id="glassOutput">/* CSS will appear here */</code>
+      <button id="copyGlass" class="btn-hover">Copy CSS</button>
     </div>
   </div>
 
@@ -1014,22 +1224,9 @@
           </select>
         </div>
       </div>
-      <div id="cqBreakpoints">
-        <div class="cq-breakpoint-row">
-          <input type="number" class="cq-bp-width" value="400" placeholder="400">
-          <span>px</span>
-          <input type="text" class="cq-bp-css" value="font-size: 1.25rem; padding: 1.5rem;" placeholder="CSS properties…">
-          <button class="remove-cq-bp btn-hover" title="Remove">×</button>
-        </div>
-        <div class="cq-breakpoint-row">
-          <input type="number" class="cq-bp-width" value="700" placeholder="700">
-          <span>px</span>
-          <input type="text" class="cq-bp-css" value="font-size: 1.5rem; padding: 2rem;" placeholder="CSS properties…">
-          <button class="remove-cq-bp btn-hover" title="Remove">×</button>
-        </div>
-      </div>
+      <div id="cqBreakpoints"></div>
       <button id="addCqBp" class="btn-hover">+ Add Breakpoint</button>
-      <div class="code-display" style="margin-top:10px;">
+      <div class="code-display u-mt-10">
         <code id="cqOutput">/* Container query CSS */</code>
         <button id="copyCq" class="btn-hover">Copy CSS</button>
       </div>
@@ -1037,8 +1234,8 @@
 
     <div class="snippet-content hidden" id="snip-logical">
       <p class="hint">Convert physical CSS properties to logical equivalents for better right-to-left and left-to-right support.</p>
-      <textarea id="logicalInput" rows="6" placeholder="Paste CSS with physical properties…&#10;&#10;margin-left: 16px;&#10;padding-right: 24px;&#10;border-top: 1px solid #ccc;"></textarea>
-      <button id="convertLogical" class="btn-hover" style="margin:8px 0;">Convert to Logical</button>
+      <textarea id="logicalInput" class="code-input" rows="6" placeholder="Paste CSS with physical properties…&#10;&#10;margin-left: 16px;&#10;padding-right: 24px;&#10;border-top: 1px solid #ccc;"></textarea>
+      <button id="convertLogical" class="btn-hover u-my-8">Convert to Logical</button>
       <div class="code-display">
         <code id="logicalOutput">/* Converted CSS will appear here */</code>
         <button id="copyLogical" class="btn-hover">Copy CSS</button>
@@ -1058,10 +1255,10 @@
       </div>
       <div class="input-group">
         <label for="hasProperties">CSS properties when matched</label>
-        <textarea id="hasProperties" rows="3">border: 2px solid var(--accent);
+        <textarea id="hasProperties" class="code-input" rows="3">border: 2px solid var(--accent);
 background: var(--bg-elevated);</textarea>
       </div>
-      <div class="code-display" style="margin-top:8px;">
+      <div class="code-display u-mt-8">
         <code id="hasOutput">/* :has() CSS */</code>
         <button id="copyHas" class="btn-hover">Copy CSS</button>
       </div>
@@ -1080,16 +1277,18 @@ background: var(--bg-elevated);</textarea>
         <option value="Product">Product</option>
         <option value="FAQPage">FAQ Page</option>
         <option value="LocalBusiness">Local Business</option>
+        <option value="BreadcrumbList">Breadcrumbs</option>
       </select>
     </div>
 
     <div id="schemaFields"></div>
 
-    <div class="code-display" style="margin-top:12px;">
+    <div class="code-display u-mt-12">
       <code id="schemaOutput">/* Select a schema type and fill the fields */</code>
       <button id="copySchema" class="btn-hover">Copy JSON-LD</button>
     </div>
-    <p id="schemaValidation" class="clamp-error"></p>
+    <p id="schemaValidation" class="field-error"></p>
+    <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener" class="btn-ghost schema-test-link">Validate in Google Rich Results Test ↗</a>
   </div>
 
 
@@ -1097,41 +1296,43 @@ background: var(--bg-elevated);</textarea>
   <div class="tab-content" id="robots-txt">
     <h3>Robots.txt Generator</h3>
 
-    <div class="robots-options">
-      <h4>Common Bots</h4>
-      <div class="robots-toggles">
-        <label class="robots-toggle"><input type="checkbox" class="bot-toggle" data-bot="GPTBot"> Block GPTBot (ChatGPT)</label>
-        <label class="robots-toggle"><input type="checkbox" class="bot-toggle" data-bot="Claude-Web"> Block Claude AI</label>
-        <label class="robots-toggle"><input type="checkbox" class="bot-toggle" data-bot="Google-Extended"> Block Google Bard/Gemini</label>
-        <label class="robots-toggle"><input type="checkbox" class="bot-toggle" data-bot="CCBot"> Block Common Crawl</label>
-        <label class="robots-toggle"><input type="checkbox" class="bot-toggle" data-bot="Googlebot"> Block Googlebot</label>
-        <label class="robots-toggle"><input type="checkbox" class="bot-toggle" data-bot="Bingbot"> Block Bingbot</label>
-      </div>
-
-      <h4>Disallow Paths</h4>
-      <div id="robotsDisallowList">
-        <div class="robots-path-row">
-          <select class="robots-ua-select">
-            <option value="*">All (*)</option>
-            <option value="Googlebot">Googlebot</option>
-            <option value="Bingbot">Bingbot</option>
-          </select>
-          <input type="text" class="robots-path-input" value="/admin/" placeholder="/path/">
-          <button class="remove-robots-path btn-hover">×</button>
-        </div>
-      </div>
-      <button id="addRobotsPath" class="btn-hover">+ Add Disallow</button>
-
-      <h4>Sitemap</h4>
-      <div class="input-group">
-        <label for="robotsSitemap">Sitemap URL (optional)</label>
-        <input type="text" id="robotsSitemap" placeholder="https://example.com/sitemap.xml">
+    <div class="robots-preset-row">
+      <span class="panel-label">Presets</span>
+      <div class="robots-presets">
+        <button class="btn-ghost robots-preset" data-preset="default">Allow all</button>
+        <button class="btn-ghost robots-preset" data-preset="block-training">Block AI training</button>
+        <button class="btn-ghost robots-preset" data-preset="block-all-ai">Block all AI</button>
+        <button class="btn-ghost robots-preset" data-preset="wordpress">WordPress</button>
+        <button class="btn-ghost robots-preset" data-preset="staging">Staging (block everything)</button>
       </div>
     </div>
 
-    <div class="code-display" style="margin-top:12px;">
+    <div id="robotsBotGroups"></div>
+
+    <h4>Rules</h4>
+    <div id="robotsRuleList"></div>
+    <button id="addRobotsRule" class="btn-hover">+ Add Rule</button>
+
+    <div class="input-grid u-mt-12">
+      <div class="input-group">
+        <label for="robotsCrawlDelay" title="Honored by Bing, Yandex and others. Ignored by Google.">Crawl-delay (seconds, optional)</label>
+        <input type="number" id="robotsCrawlDelay" min="0" max="60" placeholder="e.g. 10">
+      </div>
+    </div>
+
+    <h4>Sitemaps</h4>
+    <div id="robotsSitemapList"></div>
+    <button id="addRobotsSitemap" class="btn-ghost">+ Add Sitemap</button>
+
+    <div id="robotsWarnings" class="robots-warnings"></div>
+
+    <div class="code-display code-display--tall u-mt-12">
       <code id="robotsOutput">User-agent: *&#10;Disallow:</code>
-      <button id="copyRobots" class="btn-hover">Copy robots.txt</button>
+      <button id="copyRobots" class="btn-hover">Copy</button>
+    </div>
+    <div class="robots-footer-actions">
+      <button id="downloadRobots" class="btn-ghost">Download robots.txt</button>
+      <button id="viewLiveRobots" class="btn-ghost">View live robots.txt of active site</button>
     </div>
   </div>
 
@@ -1141,16 +1342,23 @@ background: var(--bg-elevated);</textarea>
     <h3>HTML Beautify / Minify</h3>
 
     <label class="jts-panel-label" for="hbmInput">HTML Input</label>
-    <textarea id="hbmInput" class="jts-textarea" style="margin-bottom:10px;" rows="9" placeholder="Paste HTML here…"></textarea>
+    <textarea id="hbmInput" class="code-input jts-textarea u-mb-10" rows="9" placeholder="Paste HTML here…"></textarea>
 
     <div class="hbm-actions">
       <button id="hbmBeautify" class="btn-hover">Beautify</button>
       <button id="hbmMinify" class="btn-hover">Minify</button>
+      <label class="hbm-option">Indent
+        <select id="hbmIndent" class="hbm-indent-select">
+          <option value="2" selected>2 spaces</option>
+          <option value="4">4 spaces</option>
+          <option value="tab">Tab</option>
+        </select>
+      </label>
       <label class="hbm-option"><input type="checkbox" id="hbmRemoveComments" checked> Remove comments</label>
     </div>
-    <p id="hbmError" class="clamp-error"></p>
+    <p id="hbmError" class="field-error"></p>
 
-    <label class="jts-panel-label" style="display:block;margin:10px 0 4px;">Output</label>
+    <label class="jts-panel-label u-label-block">Output <small id="hbmStats" class="hint-inline"></small></label>
     <div class="code-display code-display--tall">
       <code id="hbmOutput"><!-- Output will appear here --></code>
       <button id="copyHbm" class="btn-hover">Copy</button>
@@ -1158,6 +1366,368 @@ background: var(--bg-elevated);</textarea>
   </div>
 
 
+  <!-- Encoder / Decoder -->
+  <div class="tab-content" id="encoder-decoder">
+    <h3>Encoder / Decoder</h3>
+    <p class="tool-intro">Type or paste in either pane and the other converts instantly. Everything stays in your browser.</p>
+
+    <div class="snippets-tabs enc-tabs">
+      <button class="enc-mode-btn active" data-mode="base64">Base64</button>
+      <button class="enc-mode-btn" data-mode="url">URL</button>
+      <button class="enc-mode-btn" data-mode="entities">HTML Entities</button>
+    </div>
+
+    <div class="option-row" id="encB64Options">
+      <label><input type="checkbox" id="encUrlSafe"> URL-safe Base64 (<code>-_</code>, no padding)</label>
+    </div>
+
+    <div class="enc-pane-hdr">
+      <span class="panel-label">Plain text</span>
+      <button id="encCopyPlain" class="btn-ghost enc-copy-btn">Copy</button>
+    </div>
+    <textarea id="encPlain" class="code-input" rows="5" placeholder="Type or paste plain text…"></textarea>
+
+    <div class="enc-pane-hdr">
+      <span class="panel-label">Encoded</span>
+      <button id="encCopyEncoded" class="btn-ghost enc-copy-btn">Copy</button>
+    </div>
+    <textarea id="encEncoded" class="code-input" rows="5" placeholder="…or paste encoded text here to decode"></textarea>
+    <p id="encError" class="field-error"></p>
+  </div>
+
+
+  <!-- Copy Page as Markdown -->
+  <div class="tab-content" id="copy-markdown">
+    <h3>Copy Page as Markdown</h3>
+    <p class="tool-intro">Turn the current page into clean, LLM-ready Markdown you can paste straight into ChatGPT, Claude, Notion or Obsidian. Article mode keeps the main content and strips nav, ads and footers. Options re-convert instantly without touching the page again. Everything stays in your browser.</p>
+
+    <div class="snippets-tabs cmd-modes">
+      <button class="cmd-mode-btn" data-mode="article" title="Main content only, with nav, ads and footers removed">Article</button>
+      <button class="cmd-mode-btn" data-mode="full" title="The whole visible page">Full Page</button>
+      <button class="cmd-mode-btn" data-mode="selection" title="Only the text you highlighted on the page">Selection</button>
+      <button class="cmd-mode-btn" data-mode="pick" title="Click any element on the page to capture just that part">Pick Element</button>
+    </div>
+
+    <div class="option-row">
+      <label><input type="checkbox" id="cmdMeta" checked> Metadata header</label>
+      <label><input type="checkbox" id="cmdLinks" checked> Keep links</label>
+      <label><input type="checkbox" id="cmdImages" checked> Keep images</label>
+      <label><input type="checkbox" id="cmdCleanUrls" checked> Strip tracking params</label>
+    </div>
+
+    <p id="cmdError" class="field-error"></p>
+
+    <div class="pane-hdr">
+      <span class="panel-label">Markdown<span class="cmd-stats" id="cmdStats"></span></span>
+      <button id="cmdCopy" class="btn-hover">Copy Markdown</button>
+    </div>
+    <textarea id="cmdOutput" class="code-input" rows="14" spellcheck="false" placeholder="Pick a capture mode above. The Markdown appears here and you can edit it before copying."></textarea>
+
+    <div class="cmd-actions">
+      <button id="cmdDownloadMd" class="btn-ghost">Download .md</button>
+      <button id="cmdDownloadTxt" class="btn-ghost">Download .txt</button>
+    </div>
+  </div>
+
+
+  <!-- AI Readiness Audit (GEO/AEO) -->
+  <div class="tab-content" id="ai-readiness">
+    <h3>AI Readiness Audit</h3>
+    <div class="tseo-intro">
+      <p>Checks how visible and quotable this page is for AI search engines and assistants (GEO/AEO): crawler access, llms.txt, machine readability and answer-friendly structure.</p>
+      <button id="runAirAudit" class="btn-hover">↻ Re-audit</button>
+    </div>
+    <p id="airError" class="field-error"></p>
+    <div id="airResults" class="tseo-results hidden">
+      <div id="airSummary" class="tseo-summary"></div>
+      <div class="tseo-toolbar">
+        <div class="tseo-filters">
+          <button class="air-filter-btn active" data-filter="all">All</button>
+          <button class="air-filter-btn" data-filter="fail">Failed</button>
+          <button class="air-filter-btn" data-filter="warn">Warnings</button>
+          <button class="air-filter-btn" data-filter="pass">Passed</button>
+          <button class="air-filter-btn" data-filter="info">Info</button>
+        </div>
+        <button id="airCopyReport" class="btn-ghost">Copy Report</button>
+      </div>
+      <div id="airList" class="tseo-list"></div>
+    </div>
+  </div>
+
+
+  <!-- llms.txt Generator + Viewer -->
+  <div class="tab-content" id="llms-txt">
+    <h3>llms.txt Generator + Viewer</h3>
+    <p class="tool-intro"><code>llms.txt</code> is an emerging standard: a curated Markdown map at <code>/llms.txt</code> that tells AI assistants which pages on your site matter most. View what a site already publishes, or generate your own. Everything stays in your browser.</p>
+
+    <div class="snippets-tabs cmd-modes">
+      <button class="llms-mode-btn active" data-mode="view">View current site</button>
+      <button class="llms-mode-btn" data-mode="generate">Generate</button>
+    </div>
+
+    <!-- VIEW -->
+    <div id="llmsView">
+      <div class="tseo-intro">
+        <p>Checks this site for <code>/llms.txt</code> and validates it against the spec.</p>
+        <button id="llmsFetch" class="btn-hover">↻ Re-check</button>
+      </div>
+      <p id="llmsViewError" class="field-error"></p>
+      <div id="llmsViewResult"></div>
+    </div>
+
+    <!-- GENERATE -->
+    <div id="llmsGen" class="hidden">
+      <div class="llms-gen-actions">
+        <button id="llmsImportPage" class="btn-ghost">Import from page</button>
+        <button id="llmsImportSitemap" class="btn-ghost">Import from sitemap</button>
+        <button id="llmsGenClear" class="btn-ghost">Clear</button>
+      </div>
+      <p id="llmsGenError" class="field-error"></p>
+
+      <label class="panel-label" for="llmsTitle">Site title</label>
+      <input id="llmsTitle" class="llms-input" placeholder="My Project">
+      <label class="panel-label" for="llmsSummary">Summary</label>
+      <textarea id="llmsSummary" class="code-input" rows="2" placeholder="A short one-line description of the site."></textarea>
+      <label class="panel-label" for="llmsDetails">Details <span class="tool-subtle" style="display:inline">(optional Markdown)</span></label>
+      <textarea id="llmsDetails" class="code-input" rows="2" placeholder="Any extra context for the LLM (no headings)."></textarea>
+
+      <div class="pane-hdr"><span class="panel-label">Sections</span></div>
+      <div id="llmsSections"></div>
+      <button id="llmsAddSection" class="btn-ghost" type="button">+ Add section</button>
+
+      <div class="pane-hdr"><span class="panel-label">llms.txt output</span></div>
+      <textarea id="llmsOutput" class="code-input" rows="12" readonly spellcheck="false" placeholder="Your llms.txt appears here…"></textarea>
+      <div class="jf-out-actions">
+        <button id="llmsCopy" class="btn-hover">Copy</button>
+        <button id="llmsDownload" class="btn-ghost">Download llms.txt</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Full Page Screenshot -->
+  <div class="tab-content" id="full-screenshot">
+    <h3>Full Page Screenshot</h3>
+    <p class="tool-intro">Capture the whole page, including everything below the fold, as one PNG or JPEG. It scrolls and stitches the page automatically. Or use <strong>Select Area</strong> to drag a box, fine-tune every side, then crop. Keep this popup open and in focus while it captures. Everything stays in your browser.</p>
+
+    <div class="snippets-tabs cmd-modes">
+      <button class="cmd-mode-btn active" data-mode="full" title="Scroll the whole page and stitch it into one image">Full Page</button>
+      <button class="cmd-mode-btn" data-mode="visible" title="Just what's on screen right now">Visible Area</button>
+      <button class="cmd-mode-btn" data-mode="region" title="Drag a box on the page to capture just that area">Select Area</button>
+    </div>
+
+    <div class="option-row">
+      <label id="shotFormatWrap">Format
+        <select id="shotFormat">
+          <option value="png">PNG</option>
+          <option value="jpeg">JPEG</option>
+        </select>
+      </label>
+      <label id="shotHideFixedWrap"><input type="checkbox" id="shotHideFixed" checked> Show sticky elements only once</label>
+    </div>
+
+    <button id="shotCapture" class="btn-hover">Capture Screenshot</button>
+    <p id="shotProgress" class="shot-progress"></p>
+    <p id="shotError" class="field-error"></p>
+
+    <div id="shotResult" class="hidden">
+      <div class="pane-hdr">
+        <span class="panel-label">Preview<span class="cmd-stats" id="shotMeta"></span></span>
+      </div>
+      <div class="shot-preview-wrap"><img id="shotImg" alt="Screenshot preview"></div>
+      <div class="shot-actions">
+        <button id="shotDownload" class="btn-hover">Download</button>
+        <button id="shotCopy" class="btn-ghost">Copy to clipboard</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Tech Stack Detector -->
+  <div class="tab-content" id="tech-stack">
+    <h3>Tech Stack Detector</h3>
+    <div class="tseo-intro">
+      <p>Detects the technologies powering this page: CMS, frameworks, ecommerce, analytics, hosting and more. For WordPress it finds the active theme and plugins; for Shopify, the theme and apps.</p>
+      <button id="runTsd" class="btn-hover">↻ Re-scan</button>
+    </div>
+    <p id="tsdError" class="field-error"></p>
+    <div id="tsdResults" class="hidden">
+      <div id="tsdHero" class="tsd-hero"></div>
+      <div id="tsdSpecial"></div>
+      <div id="tsdList"></div>
+      <div class="tsd-toolbar">
+        <button id="tsdCopyReport" class="btn-ghost">Copy Report</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Color Blindness Simulator -->
+  <div class="tab-content" id="cvd-sim">
+    <h3>Color Blindness Simulator</h3>
+    <p class="tool-intro">See the current page the way people with color vision deficiencies do. The filter is applied live to the page and to the swatches below. Around 1 in 12 men and 1 in 200 women have some form of color blindness.</p>
+
+    <div class="cvd-preview">
+      <span class="panel-label">Preview</span>
+      <div class="cvd-swatches" id="cvdSwatches"></div>
+    </div>
+
+    <div class="cvd-types" id="cvdTypes"></div>
+    <p id="cvdError" class="field-error"></p>
+
+    <!-- Hidden SVG filter that drives the popup swatch preview -->
+    <svg aria-hidden="true" width="0" height="0" style="position:absolute">
+      <filter id="cvdPreviewFilter" color-interpolation-filters="sRGB">
+        <feColorMatrix id="cvdPreviewMatrix" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+      </filter>
+    </svg>
+  </div>
+
+
+  <!-- Responsive Viewport Tester -->
+  <div class="tab-content" id="viewport-tester">
+    <h3>Responsive Viewport Tester</h3>
+    <p class="tool-intro">Preview the current page at any device viewport, including phone widths a real window can't shrink to. It opens a scaled, exact-size preview in a new tab where you can switch sizes, rotate, zoom, toggle a <strong>mobile user-agent</strong>, and take a <strong>full-page screenshot</strong> at that viewport. Works on any site.</p>
+
+    <div class="option-row">
+      <label title="Open presets rotated, swapping width and height for landscape orientation"><input type="checkbox" id="vpRotate"> Landscape</label>
+    </div>
+
+    <div id="vpGroups" class="vp-groups"></div>
+    <p id="vpError" class="field-error"></p>
+
+    <div class="vp-custom">
+      <span class="panel-label">Custom size</span>
+      <div class="vp-custom-row">
+        <input type="number" id="vpW" class="llms-input" placeholder="Width" value="390" min="200" max="5000">
+        <span class="vp-x">×</span>
+        <input type="number" id="vpH" class="llms-input" placeholder="Height" value="844" min="200" max="5000">
+        <button id="vpApply" class="btn-hover">Open preview</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Pixel Ruler & Overlay -->
+  <div class="tab-content" id="ruler-overlay">
+    <h3>Pixel Ruler &amp; Overlay</h3>
+    <p class="tool-intro">Two designer tools for the current page. The Ruler measures distances and element sizes; the Design Overlay drops a mockup on top of the page so you can match your build pixel-for-pixel. Controls appear on the page, so you can keep building while they stay live.</p>
+
+    <div class="ro-section">
+      <div class="panel-label">Page Ruler</div>
+      <p class="tool-subtle">Crosshair guides follow your cursor. Drag to measure any region; hover an element to read its size. Press Esc to exit.</p>
+      <button id="roRuler" class="btn-hover">Start Ruler</button>
+      <p id="roRulerError" class="field-error"></p>
+    </div>
+
+    <div class="ro-section">
+      <div class="panel-label">Design Overlay</div>
+      <p class="tool-subtle">Load a design image, drop it over the page, then adjust opacity, position, scale and blend mode right on the page.</p>
+      <label id="roDrop" class="ro-drop">
+        <input type="file" id="roFile" accept="image/*" hidden>
+        <span id="roDropText">Click to choose an image, or drop one here</span>
+      </label>
+      <img id="roThumb" class="ro-thumb hidden" alt="">
+      <button id="roPlace" class="btn-hover" disabled>Place Overlay on Page</button>
+      <p id="roError" class="field-error"></p>
+    </div>
+  </div>
+
+
+  <!-- Diff Checker -->
+  <div class="tab-content" id="diff-checker">
+    <h3>Diff Checker</h3>
+    <p class="tool-intro">Compare two blocks of text and see exactly what changed, line by line, with the differing words highlighted within each changed line. Side-by-side or unified view. Everything stays in your browser.</p>
+
+    <div class="option-row">
+      <label><input type="checkbox" id="diffIgnoreWs"> Ignore whitespace</label>
+      <label><input type="checkbox" id="diffIgnoreCase"> Ignore case</label>
+      <label><input type="checkbox" id="diffCollapse"> Collapse unchanged</label>
+    </div>
+
+    <div class="diff-actions">
+      <button id="diffSwap" class="btn-ghost">Swap</button>
+      <button id="diffSample" class="btn-ghost">Sample</button>
+      <button id="diffClear" class="btn-ghost">Clear</button>
+    </div>
+
+    <div class="diff-inputs">
+      <div class="diff-input-col">
+        <div class="pane-hdr"><span class="panel-label">Original</span></div>
+        <textarea id="diffA" class="code-input" rows="8" spellcheck="false" placeholder="Paste the original text…"></textarea>
+      </div>
+      <div class="diff-input-col">
+        <div class="pane-hdr"><span class="panel-label">Changed</span></div>
+        <textarea id="diffB" class="code-input" rows="8" spellcheck="false" placeholder="Paste the changed text…"></textarea>
+      </div>
+    </div>
+
+    <div class="pane-hdr">
+      <span class="panel-label">Diff<span class="jf-stats" id="diffStats"></span></span>
+      <div class="jf-view-toggle">
+        <button class="diff-view-btn active" data-view="split">Side-by-side</button>
+        <button class="diff-view-btn" data-view="unified">Unified</button>
+      </div>
+    </div>
+    <div id="diffResult" class="diff-result"><p class="diff-empty">Paste text into both panes to see the difference.</p></div>
+    <div class="jf-out-actions">
+      <button id="diffCopy" class="btn-hover">Copy diff</button>
+    </div>
+  </div>
+
+
+  <!-- JSON Formatter / Validator -->
+  <div class="tab-content" id="json-formatter">
+    <h3>JSON Formatter / Validator</h3>
+    <p class="tool-intro">Format, validate, minify and explore JSON. It pinpoints errors with the exact line and column, repairs messy JSON (trailing commas, comments, single quotes, unquoted keys), and gives you a collapsible tree. Everything stays in your browser.</p>
+
+    <div class="option-row">
+      <label>Indent
+        <select id="jfIndent">
+          <option value="2">2 spaces</option>
+          <option value="4">4 spaces</option>
+          <option value="tab">Tab</option>
+        </select>
+      </label>
+      <label><input type="checkbox" id="jfSort"> Sort keys</label>
+      <label><input type="checkbox" id="jfLenient" checked> Auto-repair</label>
+    </div>
+
+    <div class="jf-actions">
+      <button id="jfFormat" class="btn-hover">Format</button>
+      <button id="jfMinify" class="btn-ghost">Minify</button>
+      <button id="jfSample" class="btn-ghost">Sample</button>
+      <button id="jfClear" class="btn-ghost">Clear</button>
+    </div>
+
+    <div class="pane-hdr"><span class="panel-label">Input</span></div>
+    <textarea id="jfInput" class="code-input" rows="7" spellcheck="false" placeholder="Paste or type JSON here…"></textarea>
+    <div id="jfStatus" class="jf-status"></div>
+
+    <div class="pane-hdr">
+      <span class="panel-label">Output<span class="jf-stats" id="jfStats"></span></span>
+      <div class="jf-view-toggle">
+        <button class="jf-view-btn active" data-view="text">Text</button>
+        <button class="jf-view-btn" data-view="tree">Tree</button>
+      </div>
+    </div>
+
+    <div id="jfTreeTools" class="jf-tree-tools hidden">
+      <input id="jfSearch" class="jf-search" placeholder="Filter keys & values…" spellcheck="false">
+      <button id="jfExpandAll" class="btn-ghost">Expand all</button>
+      <button id="jfCollapseAll" class="btn-ghost">Collapse all</button>
+    </div>
+
+    <textarea id="jfOutput" class="code-input" rows="12" readonly spellcheck="false" placeholder="Formatted JSON appears here…"></textarea>
+    <div id="jfTree" class="jf-tree hidden"></div>
+
+    <div class="jf-out-actions">
+      <button id="jfCopy" class="btn-hover">Copy</button>
+      <button id="jfDownload" class="btn-ghost">Download .json</button>
+    </div>
+  </div>
 
 
   <!-- CSS Inspector -->
@@ -1190,6 +1760,44 @@ background: var(--bg-elevated);</textarea>
   </div>
 
 
+  <!-- Component Extractor -->
+  <div class="tab-content" id="component-extractor">
+    <h3>Component Extractor</h3>
+    <p class="tool-intro">Pick any container on the page and get its full HTML plus the computed CSS of every child, as a self-contained, replicable component. (Event-listener JavaScript can't be extracted, because browsers don't expose it to extensions.)</p>
+
+    <div class="cex-actions">
+      <button id="cexPickBtn" class="btn-primary inspect-start-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        Pick &amp; Extract
+      </button>
+      <button id="cexClearBtn" class="btn-ghost" disabled>Clear</button>
+    </div>
+    <p class="hint">The popup closes, then hover to highlight, click a container to extract, or press Esc to cancel. Reopen the extension to see the results.</p>
+    <p id="cexError" class="field-error"></p>
+
+    <div id="cexResults" class="hidden">
+      <div id="cexContext" class="cex-context"></div>
+
+      <div class="enc-pane-hdr">
+        <span class="panel-label">HTML</span>
+        <button id="cexCopyHtml" class="btn-ghost enc-copy-btn">Copy</button>
+      </div>
+      <textarea id="cexHtml" class="code-input" rows="7" readonly></textarea>
+
+      <div class="enc-pane-hdr">
+        <span class="panel-label">CSS (all children)</span>
+        <button id="cexCopyCss" class="btn-ghost enc-copy-btn">Copy</button>
+      </div>
+      <textarea id="cexCss" class="code-input" rows="9" readonly></textarea>
+
+      <div class="cex-footer">
+        <button id="cexCopyFile" class="btn-hover">Copy as single HTML file</button>
+        <button id="cexDownload" class="btn-ghost">Download .html</button>
+      </div>
+    </div>
+  </div>
+
+
 
 
   <!-- Technical SEO Audit -->
@@ -1197,11 +1805,40 @@ background: var(--bg-elevated);</textarea>
     <h3>Technical SEO Audit</h3>
     <div class="tseo-intro">
       <p>Scans the active tab for technical SEO issues that affect indexing and ranking.</p>
-      <button id="runTechSEO" class="btn-hover">Audit Active Tab</button>
+      <button id="runTechSEO" class="btn-hover">↻ Re-audit</button>
     </div>
     <div id="techSEOResults" class="tseo-results hidden">
       <div id="techSEOSummary" class="tseo-summary"></div>
+      <div class="tseo-toolbar">
+        <div class="tseo-filters">
+          <button class="tseo-filter-btn active" data-filter="all">All</button>
+          <button class="tseo-filter-btn" data-filter="fail">Failed</button>
+          <button class="tseo-filter-btn" data-filter="warn">Warnings</button>
+          <button class="tseo-filter-btn" data-filter="pass">Passed</button>
+          <button class="tseo-filter-btn" data-filter="info">Info</button>
+        </div>
+        <button id="tseoCopyReport" class="btn-ghost">Copy Report</button>
+      </div>
       <div id="techSEOList" class="tseo-list"></div>
+    </div>
+  </div>
+
+
+  <!-- Headings Outline -->
+  <div class="tab-content" id="headings-outline">
+    <h3>Headings Outline</h3>
+    <p class="tool-intro">Maps the active page's H1–H6 structure as a tree. Click any heading to scroll to it on the page.</p>
+
+    <div class="ho-actions">
+      <button id="hoScanBtn" class="btn-hover">↻ Rescan</button>
+      <button id="hoCopyBtn" class="btn-ghost" disabled>Copy Outline</button>
+    </div>
+    <p id="hoError" class="field-error"></p>
+
+    <div id="hoResults" class="hidden">
+      <div id="hoSummary" class="ho-summary"></div>
+      <div id="hoWarnings" class="robots-warnings"></div>
+      <div id="hoTree" class="ho-tree"></div>
     </div>
   </div>
 
@@ -1212,7 +1849,7 @@ background: var(--bg-elevated);</textarea>
 
     <div class="a11y-intro">
       <p>Scans the active tab for common accessibility issues.</p>
-      <button id="runA11yAudit" class="btn-hover">Audit Active Tab</button>
+      <button id="runA11yAudit" class="btn-hover">↻ Re-audit</button>
     </div>
 
     <div id="a11yResults" class="a11y-results hidden">

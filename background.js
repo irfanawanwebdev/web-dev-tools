@@ -1,4 +1,19 @@
 const urlCache = new Map();
+const URL_CACHE_MAX = 2000;
+
+// Responsive Viewport Tester: strip frame-blocking headers, but ONLY for the
+// specific preview tab (scoped via tabIds), so the rest of the browser is
+// unaffected. The rule id is the tab id; cleaned up when the tab closes.
+chrome.tabs.onRemoved.addListener((tabId) => {
+  chrome.declarativeNetRequest.updateSessionRules({ removeRuleIds: [tabId] }).catch(() => {});
+});
+
+function cacheResult(url, result) {
+  if (urlCache.size >= URL_CACHE_MAX) {
+    urlCache.delete(urlCache.keys().next().value);
+  }
+  urlCache.set(url, result);
+}
 
 async function checkSingleUrl(url) {
   if (urlCache.has(url)) return urlCache.get(url);
@@ -32,11 +47,17 @@ async function checkSingleUrl(url) {
     }
   }
 
-  urlCache.set(url, result);
+  cacheResult(url, result);
   return result;
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  // Only accept messages from this extension's own pages
+  if (sender.id !== chrome.runtime.id) {
+    sendResponse({ error: "Unauthorized sender." });
+    return true;
+  }
+
   if (message.type === "API_REQUEST") {
     const { url, method, headers, body } = message;
     const opts = { method: method || "GET", headers: headers || {} };
@@ -47,15 +68,69 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       .then(async res => {
         const elapsed = Date.now() - startTime;
         const contentType = res.headers.get("content-type") || "";
+        // Expose all response headers (the extension has host permissions, so
+        // CORS doesn't gate header access) — the Tech Stack Detector reads
+        // Server, X-Powered-By, CF-Ray, etc. from here.
+        const headersObj = {};
+        try { res.headers.forEach((v, k) => { headersObj[k.toLowerCase()] = v; }); } catch (_) {}
         const text = await res.text();
         let json = null;
         if (contentType.includes("json")) {
           try { json = JSON.parse(text); } catch {}
         }
-        sendResponse({ ok: true, status: res.status, statusText: res.statusText, contentType, body: text, json, elapsed });
+        sendResponse({ ok: true, status: res.status, statusText: res.statusText, contentType, headers: headersObj, body: text, json, elapsed });
       })
       .catch(err => sendResponse({ ok: false, error: err.message }));
 
+    return true;
+  }
+
+  // Page pickers (font, component) ask to reopen the popup after capture
+  // so the user immediately sees the result. Works on Chrome 127+; older
+  // versions fail silently and the on-page confirmation covers it.
+  // The page color picker asks for a fresh screenshot after scrolling
+  if (message.type === "CAPTURE_TAB") {
+    // Page pickers send from a content script (sender.tab is set); the
+    // Screenshot tool sends from the popup (no sender.tab) and passes windowId.
+    const windowId = message.windowId ?? sender.tab?.windowId;
+    chrome.tabs.captureVisibleTab(windowId, { format: "png" }, (dataUrl) => {
+      sendResponse({ dataUrl: chrome.runtime.lastError ? null : dataUrl });
+    });
+    return true;
+  }
+
+  if (message.type === "RESP_ENABLE") {
+    const tabId = sender.tab?.id;
+    if (!tabId) { sendResponse({ ok: false }); return true; }
+    const MOBILE_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1";
+    const action = {
+      type: "modifyHeaders",
+      responseHeaders: [
+        { header: "x-frame-options", operation: "remove" },
+        { header: "content-security-policy", operation: "remove" },
+        { header: "content-security-policy-report-only", operation: "remove" },
+        { header: "frame-options", operation: "remove" },
+      ],
+    };
+    if (message.mobileUA) {
+      action.requestHeaders = [
+        { header: "user-agent", operation: "set", value: MOBILE_UA },
+        { header: "sec-ch-ua-mobile", operation: "set", value: "?1" },
+        { header: "sec-ch-ua-platform", operation: "set", value: '"iOS"' },
+      ];
+    }
+    chrome.declarativeNetRequest.updateSessionRules({
+      removeRuleIds: [tabId],
+      addRules: [{ id: tabId, priority: 1, action, condition: { tabIds: [tabId], resourceTypes: ["sub_frame"] } }],
+    }).then(() => sendResponse({ ok: true })).catch((e) => sendResponse({ ok: false, error: String(e) }));
+    return true;
+  }
+
+  if (message.type === "REOPEN_POPUP") {
+    try {
+      chrome.action.openPopup().catch(() => {});
+    } catch (_) {}
+    sendResponse({ ok: true });
     return true;
   }
 
