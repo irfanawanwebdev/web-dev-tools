@@ -53,18 +53,12 @@ Most developers juggle a dozen browser extensions and as many websites: one to f
 
 ## 📸 Screenshots
 
-> _Drop your images into the [`screenshots/`](screenshots/) folder using the exact filenames below, then uncomment the block underneath to display them._
-
-| Dashboard | A tool in action |
-| :---: | :---: |
-| _`screenshots/dashboard.png`_ | _`screenshots/tool.png`_ |
-
-<!-- Uncomment once the images are added:
 <p align="center">
-  <img src="screenshots/dashboard.png" width="45%" alt="Dashboard" />
-  <img src="screenshots/tool.png" width="45%" alt="A tool in action" />
+  <img src="screenshots/dashboard.png" width="45%" alt="Web Dev Tools dashboard" />
+  <img src="screenshots/tool.png" width="45%" alt="A Web Dev Tools tool in action" />
 </p>
--->
+
+> _Images live in [`screenshots/`](screenshots/). To swap them, replace `dashboard.png` / `tool.png` (or add more `<img>` tags above pointing at new files in that folder)._
 
 ---
 
@@ -252,11 +246,10 @@ web-dev-tools/
 ├── background.js        # Service worker (link checks, captures, DNR rules)
 ├── responsive.html      # Responsive Viewport Tester preview page
 ├── responsive.js        # Preview logic (device frames, UA, screenshots)
-├── pack.ps1             # Builds a clean Web Store zip (runtime files only)
 └── icons/               # Extension icons (16 / 48 / 128 px)
 ```
 
-> **Packaging note:** when uploading to the Chrome Web Store, don't zip the repo folder directly (it would include `.git/` and local tool configs). Run `powershell -ExecutionPolicy Bypass -File .\pack.ps1` instead — it produces `dist/web-dev-tools-v<version>.zip` containing only the files the extension needs.
+> **Packaging note:** when uploading to the Chrome Web Store, don't zip the repo folder directly (it would include `.git/` and local tool configs). Zip only the runtime files — `manifest.json`, `background.js`, `popup.html`, `popup.css`, `popup.js`, `responsive.html`, `responsive.js`, and the `icons/` folder.
 
 ---
 
