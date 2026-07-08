@@ -58,8 +58,6 @@ Most developers juggle a dozen browser extensions and as many websites: one to f
   <img src="screenshots/tool.png" width="45%" alt="A Web Dev Tools tool in action" />
 </p>
 
-> _Images live in [`screenshots/`](screenshots/). To swap them, replace `dashboard.png` / `tool.png` (or add more `<img>` tags above pointing at new files in that folder)._
-
 ---
 
 ## 🚀 Installation
