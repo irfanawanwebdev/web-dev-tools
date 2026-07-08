@@ -25,7 +25,10 @@ const DEVICES = [
 ];
 
 const params = new URLSearchParams(location.search);
-const targetUrl = params.get("url") || "";
+// Only web (and file) pages may be previewed — never javascript:, data:,
+// chrome:, etc. The popup already filters, this makes it safe by construction.
+const rawTarget = params.get("url") || "";
+const targetUrl = /^(https?|file):/i.test(rawTarget) ? rawTarget : "";
 let w = Math.max(200, parseInt(params.get("w"), 10) || 390);
 let h = Math.max(200, parseInt(params.get("h"), 10) || 844);
 

@@ -3159,6 +3159,24 @@ html[data-theme="dark"] .serp-title { color: #8ab4f8; }
   outline: none;
 }
 
+/* ---- Drag-to-reorder (Starred section only) ---- */
+.dash-card--draggable { position: relative; }
+.dash-card-grip {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: inline-flex;
+  color: var(--text-muted);
+  cursor: grab;
+  opacity: 0.45;
+  transition: opacity 0.15s, color 0.15s;
+}
+.dash-card--draggable:hover .dash-card-grip { opacity: 1; }
+.dash-card-grip:active { cursor: grabbing; }
+.dash-card--dragging { opacity: 0.4; }
+.dash-card--dropbefore { box-shadow: -3px 0 0 0 var(--accent); }
+.dash-card--dropafter { box-shadow: 3px 0 0 0 var(--accent); }
+
 .dash-card-top {
   display: flex;
   align-items: center;

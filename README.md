@@ -227,6 +227,7 @@ The extension requests the minimum permissions needed for its tools to work:
 | `host_permissions` (`<all_urls>`) | Let the tools read/analyze whatever page you choose to run them on |
 | `declarativeNetRequest` | Used **only** by the Responsive tester to preview sites in a frame (it strips frame-blocking headers for that one preview tab) |
 | `webNavigation` | Used **only** by the Responsive tester to locate the preview iframe for full-page device screenshots |
+| `favicon` | Show site icons (SERP preview) from **Chrome's local favicon cache**, so no network request is ever made for them |
 
 ---
 
@@ -251,8 +252,11 @@ web-dev-tools/
 ├── background.js        # Service worker (link checks, captures, DNR rules)
 ├── responsive.html      # Responsive Viewport Tester preview page
 ├── responsive.js        # Preview logic (device frames, UA, screenshots)
+├── pack.ps1             # Builds a clean Web Store zip (runtime files only)
 └── icons/               # Extension icons (16 / 48 / 128 px)
 ```
+
+> **Packaging note:** when uploading to the Chrome Web Store, don't zip the repo folder directly (it would include `.git/` and local tool configs). Run `powershell -ExecutionPolicy Bypass -File .\pack.ps1` instead — it produces `dist/web-dev-tools-v<version>.zip` containing only the files the extension needs.
 
 ---
 

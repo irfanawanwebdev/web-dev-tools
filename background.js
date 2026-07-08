@@ -8,6 +8,17 @@ chrome.tabs.onRemoved.addListener((tabId) => {
   chrome.declarativeNetRequest.updateSessionRules({ removeRuleIds: [tabId] }).catch(() => {});
 });
 
+// If the preview tab navigates away from responsive.html (e.g. the user reuses
+// the tab to browse), drop its rule immediately — otherwise every site visited
+// in that tab would load its iframes with CSP/XFO stripped. Rule ids are tab
+// ids and only the responsive tester creates session rules, so removing a
+// nonexistent id for ordinary tabs is a harmless no-op.
+chrome.webNavigation.onCommitted.addListener((details) => {
+  if (details.frameId !== 0) return;
+  if (details.url.startsWith(chrome.runtime.getURL("responsive.html"))) return;
+  chrome.declarativeNetRequest.updateSessionRules({ removeRuleIds: [details.tabId] }).catch(() => {});
+});
+
 function cacheResult(url, result) {
   if (urlCache.size >= URL_CACHE_MAX) {
     urlCache.delete(urlCache.keys().next().value);
@@ -29,7 +40,10 @@ async function checkSingleUrl(url) {
 
   try {
     const { signal, clear } = makeAbort();
-    const headRes = await fetch(url, { method: 'HEAD', redirect: 'follow', signal });
+    // credentials:'omit' — link checks must never ride the user's session:
+    // a page full of /logout or /delete?id= links would otherwise hit them
+    // authenticated (the extension's host permissions attach cookies by default).
+    const headRes = await fetch(url, { method: 'HEAD', redirect: 'follow', credentials: 'omit', signal });
     clear();
     const elapsed = Date.now() - startTime;
     const isRedirect = headRes.url !== url;
@@ -37,7 +51,7 @@ async function checkSingleUrl(url) {
   } catch (headErr) {
     try {
       const { signal, clear } = makeAbort();
-      const getRes = await fetch(url, { method: 'GET', redirect: 'follow', signal });
+      const getRes = await fetch(url, { method: 'GET', redirect: 'follow', credentials: 'omit', signal });
       clear();
       const elapsed = Date.now() - startTime;
       const isRedirect = getRes.url !== url;
@@ -58,9 +72,19 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true;
   }
 
+  // Network-touching messages are for the popup / extension pages only.
+  // Content scripts (which always have sender.tab) never need them — this
+  // keeps the fetch proxy out of reach of code running inside web pages.
+  if ((message.type === "API_REQUEST" || message.type === "LINK_CHECK") && sender.tab) {
+    sendResponse({ error: "Not allowed from this context." });
+    return true;
+  }
+
   if (message.type === "API_REQUEST") {
     const { url, method, headers, body } = message;
-    const opts = { method: method || "GET", headers: headers || {} };
+    // credentials:'omit' — these are public files (robots.txt, llms.txt,
+    // sitemaps, page HTML for detection); never send the user's cookies.
+    const opts = { method: method || "GET", headers: headers || {}, credentials: "omit" };
     if (body && method !== "GET" && method !== "HEAD") opts.body = body;
 
     const startTime = Date.now();
