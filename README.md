@@ -53,16 +53,16 @@ Most developers juggle a dozen browser extensions and as many websites: one to f
 
 ## 📸 Screenshots
 
-> _Drop your screenshots into a `docs/` folder and reference them here._
+> _Drop your images into the [`screenshots/`](screenshots/) folder using the exact filenames below, then uncomment the block underneath to display them._
 
 | Dashboard | A tool in action |
 | :---: | :---: |
-| _`docs/dashboard.png`_ | _`docs/tool.png`_ |
+| _`screenshots/dashboard.png`_ | _`screenshots/tool.png`_ |
 
-<!-- Example once you add images:
+<!-- Uncomment once the images are added:
 <p align="center">
-  <img src="docs/dashboard.png" width="45%" alt="Dashboard" />
-  <img src="docs/technical-seo.png" width="45%" alt="Technical SEO Audit" />
+  <img src="screenshots/dashboard.png" width="45%" alt="Dashboard" />
+  <img src="screenshots/tool.png" width="45%" alt="A tool in action" />
 </p>
 -->
 
